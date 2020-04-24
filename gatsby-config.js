@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `GDG Algiers`,
-    description: `The official website for the GDG Algiers community`,
-    author: `@GDG_ALGIERS`,
+    title: `Meridja Nassim`,
+    description: `The official website Meridja Abdellah Nassim`,
+    author: `@AbdMeri`,
     favicon :'./src/images/favicon.png'
   },
   plugins: [
@@ -26,8 +26,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gdg algiers 2020`,
-        short_name: `gdg20`,
+        name: `Abdellah Nassim Meridja`,
+        short_name: `nassim`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#fafafa`,

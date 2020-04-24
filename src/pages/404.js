@@ -8,7 +8,7 @@ const NotFoundPage = () => (
   <>
     <SEO title="Not found" />
     <NotFoundWrapper>
-     <img src={require('../images/404.webp')} alt="NOT FOUND 404" height ="50%"  width="70%" style={{margin : "50px" ,marginTop:"0"}} loading="lazy" ></img>
+    <h1>Oups...</h1>
 <h2>We could'nt find the page you are looking for {emojis.SadFaceEmoji}</h2>
       <Button title="TAKE ME BACK" outlined={true} onClick={()=> navigate("/")}></Button>
     </NotFoundWrapper>
@@ -40,6 +40,9 @@ animation : enterandbounce 1s  ease forwards;
         transform : translateY(0%)
       }
     }
+ h1 {
+  font-size :  6rem
+ }   
 h2 {
   font-size : 2rem;
   font-family: var(--font-header);

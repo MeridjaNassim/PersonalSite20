@@ -3,14 +3,14 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { CSSTransition } from "react-transition-group"
 import { dropShadow } from "../common/effects"
-import {logos , Menu as m} from '../common/images';
+import { Menu as m} from '../common/images';
+import commonStyle from './common.module.css'
 import ContextConsumer from '../../context/Context'
 const links = [
-  <Link to="/#about"> About </Link>,
-  <Link to="/#events"> Events </Link>,
-  <Link to="/#partners"> Partners </Link>,
-  <Link to="/#sponsors"> Sponsors </Link>,
-  <Link to="/#contact"> Contact </Link>,
+  <Link to="/" className={commonStyle.link} activeClassName={commonStyle.linkActive}> ME </Link>,
+  <Link to="/blogs" className={commonStyle.link} activeClassName={commonStyle.linkActive}> BLOGS </Link>,
+  <Link to="/projects" className={commonStyle.link} activeClassName={commonStyle.linkActive}> PROJECTS </Link>,
+  <Link to="/contact" className={commonStyle.link} activeClassName={commonStyle.linkActive}>GET IN TOUCH</Link>,
 ]
 
 const Header = () => {
@@ -23,24 +23,7 @@ const Header = () => {
       {({data})=> {
 
         return <StyledHeader isNavVisible={isNavVisible}>
-        <Link
-          to="/#"
-          style={{
-            margin: "auto 0",
-          }}
-        >
-          <Brand
-            alt="brand"
-            loading="eager"
-            src={
-             (data.isMobile)
-                ? logos.PhoneGDGLogo
-                : logos.GDGLogo
-            }
-            width={(data.isMobile) ? "10vw" : "18vw"}
-          ></Brand>
-        </Link>
-  
+        
         <CSSTransition
           in={!(data.isMobile) || isNavVisible}
           timeout={200}
@@ -73,7 +56,7 @@ const StyledHeader = styled.header`
   width: 100vw;
   display: grid;
   background-color: inherit;
-  grid-template-areas: "logo nav";
+  grid-template-areas: "nav";
   font-family: var(--font), sans-serif;
   font-weight: 600;
   font-size: 16px;
@@ -111,11 +94,10 @@ const StyledHeader = styled.header`
 `
 
 const StyledNav = styled.nav`
-  margin-right: 3%;
   grid-area: nav;
   display: grid;
-
-  grid-template-columns: repeat(6, auto);
+  padding : 0  30%;
+  grid-template-columns: repeat(4, auto);
   align-items: center;
   justify-items: center;
   transition: height 1s ease-in;
@@ -123,6 +105,7 @@ const StyledNav = styled.nav`
   a {
     color: inherit;
     opacity: 0.4;
+    padding : 5px 15px;
     text-decoration-line: none;
     transition: 0.5s ease-in-out;
     &:hover {
@@ -136,15 +119,6 @@ const StyledNav = styled.nav`
     padding-bottom: 10%;
   }
 `
-const Brand = styled.img`
-  grid-area: logo;
-  min-width: 80px;
-  max-width: 300px;
-  width: ${({ width }) => width};
-  margin: auto 0 auto 3%;
-  cursor: pointer;
-  
-`
 
 const Menu = styled.button`
   display: none;
@@ -153,7 +127,7 @@ const Menu = styled.button`
   margin-left: auto;
   margin-right: 10px;
   background-color: transparent;
-  border: 2px solid var(--green);
+  border : none;
   padding: 10px;
   border-radius: 10px;
   opacity: 0.7;

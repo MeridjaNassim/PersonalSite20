@@ -1,6 +1,6 @@
 /// navbar logos
 import GDGLogo from '../../images/gdg_algiers.png';
-import PhoneGDGLogo from '../../images/icons/phonelogo.png';
+import logo from '../../images/favicon.png';
 /// box icons : 
 import arrow from '../../images/icons/arrow.svg'
 import cross from '../../images/icons/cross.svg'
@@ -39,7 +39,7 @@ const BoxIcons = {
  triangle 
 } 
 const logos = {
-GDGLogo , PhoneGDGLogo,loading
+GDGLogo , logo,loading
 }
 
 const featuredIn = {
@@ -50,10 +50,13 @@ const featuredIn = {
 
 /// used emojis
 const HeartEmoji = <span role="img" aria-label="heart" >❤️</span>
+
+const BrainEmoji = <span role="img" aria-label="brain" >🧠</span>
 const CoffeeEmoji = <span role="img"  aria-label="coffee-cup" >☕</span>
 const SadFaceEmoji = <span role="img"  aria-label="sad-face" >🥺</span>
 const emojis = {
     HeartEmoji,
+    BrainEmoji,
     CoffeeEmoji,
     SadFaceEmoji,
 }

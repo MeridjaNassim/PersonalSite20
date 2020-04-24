@@ -2,12 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import Button from "../../common/button/GDGButton"
 import { navigate } from "gatsby"
-import AnimatedBoxes from "./AnimatedBoxes"
 const Wrapper = styled.section`
-  width: 100%;
+  width: 70%;
   height: 90vh;
-  padding-top: 10%;
-  padding-left: 10%;
+  padding-top : 10vh;
+  margin : auto;
   display: flex;
   background-color: inherit;
   .landing-title {
@@ -34,9 +33,10 @@ const Wrapper = styled.section`
   @media screen and (max-width: 1024px) {
     padding-left: 0;
     padding-top: 0%;
+    width: 100%;
     justify-content: flex-end;
     flex-direction: column-reverse;
-
+    align-items : center;
     .landing-title {
       width: 90%;
       margin: 20px auto;
@@ -78,8 +78,8 @@ const Buttons = styled.div`
 `
 const Content = styled.div`
   position: relative;
-  z-index: 4;
-  width: 60%;
+  
+  width: 80%;
   animation : enter 0.5s ease forwards;
     opacity : 0;
     @keyframes enter {
@@ -98,35 +98,52 @@ const Content = styled.div`
   }
 `
 const Canvas = styled.div`
-  width: 100vw;
-  padding-top: 10vh;
-
-  z-index: 3;
-  position: absolute;
+ width : 30%;
   background: transparent;
   opacity: 1;
-  top: 10%;
   @media screen and (max-width: 1024px) {
+    display : flex ;
+    justify-content : center; 
+    align-items : center;
     padding-top: 0;
-    position: relative;
-    width: 100%;
-    top: -3vh;
+    width: 60%;
     min-height: 60%;
   }
   opacity :1;
  
 `
-
+const Hello = styled.div`
+display : inline-block ; 
+justify-content : center;
+align-items : center;
+h3 {
+  margin : 0;
+  color : #fafafa;
+  font-family : var(--font-header);
+  font-weight : 300
+}
+padding : 10px ;
+border-radius : 10px;
+border-top-left-radius : 0px;
+background : var(--green);
+@media screen and (max-width: 1024px) {
+    margin : auto;
+  }
+`
 export default function Landing({ id }) {
   return (
-    <Wrapper>
+    <Wrapper id="ME">
       <Content>
+        <Hello>
+        <h3>Hello am</h3>
+        </Hello>
+        
         <h1 className="landing-title">
-          We do cool things that <span className="matter">matter</span>
+          Meridja Abdellah Nassim 
         </h1>
         <Buttons>
           <Button
-            title="ABOUT US"
+            title="ABOUT ME"
             outlined={true}
             onClick={e => {
               e.preventDefault();
@@ -134,18 +151,25 @@ export default function Landing({ id }) {
           ></Button>
           <div className="gap"></div>
           <Button
-            title="UPCOMING EVENTS"
+            title="SEE PROJECTS"
             outlined={false}
             onClick={e =>{ 
               e.preventDefault();
-              navigate("#events")
+              navigate("/projects")
             }}
           ></Button>
         </Buttons>
       </Content>
       <Canvas>
-        <AnimatedBoxes></AnimatedBoxes>
+        <Avatar src={require('../../../images/nassim_square.jpg')}></Avatar>
       </Canvas>
     </Wrapper>
   )
 }
+
+const Avatar = styled.img`
+
+border-radius : 50%;
+border : 20px solid rgba(0,0,0,0.1);
+
+`

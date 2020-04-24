@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
     let storedTheme = localStorage.getItem("theme") || "light"
     setTheme(storedTheme)
   }, [])
-  return theme === "loading" ? <PageLoader loadingText="We are coming"  ></PageLoader> : (
+  return theme === "loading" ? <PageLoader   ></PageLoader> : (
     <div className={`${theme}-theme`}>
       <Header />
       <div style={{ backgroundColor: "inherit" }}>

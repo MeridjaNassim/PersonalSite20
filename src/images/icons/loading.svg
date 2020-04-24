@@ -13,7 +13,7 @@
           xml-space="preserve"
         >
           <g transform="translate(20)">
-          <circle fill="#25A769" stroke="none" cx="6" cy="50" r="6">
+          <circle fill="#676c72" stroke="none" cx="6" cy="50" r="6">
             <animateTransform
               attributeName="transform"
               dur="1s"
@@ -23,7 +23,7 @@
               begin="0.1"
             />
           </circle>
-          <circle fill="#EA4435" stroke="none" cx="30" cy="50" r="6">
+          <circle fill="#676c72" stroke="none" cx="30" cy="50" r="6">
             <animateTransform
               attributeName="transform"
               dur="1s"
@@ -33,7 +33,7 @@
               begin="0.2"
             />
           </circle>
-          <circle fill="#5591F5" stroke="none" cx="54" cy="50" r="6">
+          <circle fill="#676c72" stroke="none" cx="54" cy="50" r="6">
             <animateTransform
               attributeName="transform"
               dur="1s"
