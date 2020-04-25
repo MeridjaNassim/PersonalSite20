@@ -161,15 +161,34 @@ export default function Landing({ id }) {
         </Buttons>
       </Content>
       <Canvas>
+        <Border>
         <Avatar src={require('../../../images/nassim_square.jpg')}></Avatar>
+        </Border>
+        
       </Canvas>
     </Wrapper>
   )
 }
 
 const Avatar = styled.img`
-
+margin : 0;
 border-radius : 50%;
-border : 20px solid rgba(0,0,0,0.1);
+border : 20px solid rgba(0,0,0,0.2);
 
+`
+const Border = styled.div`
+display : flex; 
+justify-content : center;
+align-items :center;
+border-radius : 50%;
+  border : 15px solid rgba(0,0,0,0.1);
+  animation : bordercolor 1s ease-in-out alternate infinite; 
+  @keyframes bordercolor {
+    from {
+      border-color : rgba(0,0,0,0.1);
+    }
+    to {
+      border-color : rgba(0,0,0,0);
+    }
+  }
 `

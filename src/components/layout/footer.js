@@ -4,8 +4,8 @@ import styled from "styled-components"
 import { ExternalLink } from "../common/utils"
 import { navigate } from "gatsby"
 import { emojis } from "../common/images"
-const Footer = () => (
-  <StyledFooter>
+const Footer = ({style}) => (
+  <StyledFooter style={style}>
     <div className="row1">
       <div className="content">
         <p>About</p>
@@ -89,10 +89,10 @@ const StyledFooter = styled.footer`
   min-height: 10vh;
   padding-top: 24px;
   position: relative;
-  z-index: 100;
+  z-index: 9;
   background: inherit;
   font-family: var(--font), sans-serif;
-  border-top: 10px solid var(--grey-dark);
+  border-top: 10px solid inherit ;
   justify-content: start;
   display: flex;
   flex-direction: column;
@@ -215,7 +215,7 @@ const StyledFooter = styled.footer`
           font-size: 100%;
         }
         div {
-          a {
+          a ,p{
             text-align: center;
           }
         }

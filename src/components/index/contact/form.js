@@ -163,9 +163,13 @@ class Form extends React.Component {
 
 const StyledForm = styled.form`
   font-family: var(--font);
+  position :relative ;
+  z-index :1;
   input[type="text"],
   textarea,
   input[type="email"] {
+    position :relative ;
+  z-index :1;
     width: 100%;
     padding-left: 2vw;
     font-size: 20px;
@@ -250,9 +254,11 @@ const StyledForm = styled.form`
 `
 const StyledButton = styled.button`
   width: 100%;
+  position :relative ;
+  z-index :1;
   height: 3vw;
   border: none;
-  background-color: #0d9d58;
+  background-color: var(--green);
   font-family: var(--font-header);
   font-size: 20px;
   text-align: center;

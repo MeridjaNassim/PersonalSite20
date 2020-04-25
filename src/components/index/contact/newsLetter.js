@@ -30,13 +30,12 @@ const NewsLetter = () => {
         setError({ isError: false })
         setShowModal({ show: true, msg: THANKS })
       }, 1000)
-      setTimeout(() => reset(), 1500)
+      setTimeout(() => reset(), 5000)
     }
   }
   const reset = () => {
     setEmail("")
     setError({ isError: true, msg: INVALID_EMAIL })
-    setShowModal({ show: false, msg: "" })
   }
   return (
     <StyledDiv>
@@ -50,8 +49,8 @@ const NewsLetter = () => {
           {showModal.msg}
         </Modal>
       ) : null}
-      <h1 className="title">Be a part of our community</h1>
-      <p className="info">Sign up for to GDG Algiers newsletter.</p>
+      <h1 className="title">Subscribe to my newsletter</h1>
+      <p className="info">get latest updates about projects and blogs</p>
       <div>
         <input
           name="email"
@@ -72,6 +71,7 @@ const NewsLetter = () => {
 const StyledDiv = styled.div`
   font-family: var(--font);
   height: auto;
+  position :relative;
   width: 100%;
   text-align: center;
   margin-top: 2vw;
@@ -83,8 +83,8 @@ const StyledDiv = styled.div`
     width: 26vw;
     background-color: inherit;
     outline-color: transparent;
-    border: solid 1px #ea4334;
-    color: #9d9c9c;
+    border: solid 1px var(--green);
+    color: var(--green);
     padding-left: 1vw;
     vertical-align: middle;
     border-top-left-radius: 5px;
@@ -106,8 +106,8 @@ const StyledDiv = styled.div`
       height: 8vw;
       width: 100%;
       outline-color: none;
-      border: solid 1px #ea4334;
-      color: #9d9c9c;
+      border: solid 1px var(--green);
+      color: var(--green);
       padding-left: 4vw;
       border-radius: 1.6vw;
       margin-bottom: 3vw;
@@ -128,7 +128,7 @@ const StyledButton = styled.button`
   height: 3vw;
   width: 8vw;
   color: #ffff;
-  background-color: #ea4334;
+  background-color: var(--green);
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;

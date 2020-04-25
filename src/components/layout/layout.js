@@ -11,56 +11,60 @@ import Footer from "./footer"
 import "../../styles/layout.css"
 import "../../styles/main.css"
 import styled from "styled-components"
-import PageLoader from '../common/loader'
+import PageLoader from "../common/loader"
+import ConsumerContext from "../../context/Context"
 const Main = styled.main`
-  padding-top: 10vh;
-  @media screen and (max-width: 768px) {
-    padding-top: 13vh;
-  }
 `
 
 const Layout = ({ children }) => {
   const [theme, setTheme] = useState("loading")
   const [animate, setAnimate] = useState(false)
   useEffect(() => {
-    let storedTheme = localStorage.getItem("theme") || "light"
+    let storedTheme = localStorage.getItem("theme") || "dark"
     setTheme(storedTheme)
   }, [])
-  return theme === "loading" ? <PageLoader   ></PageLoader> : (
-    <div className={`${theme}-theme`}>
-      <Header />
-      <div style={{ backgroundColor: "inherit" }}>
-        <ThemeSwitch
-          onClick={e => {
-            let newdata = theme === "light" ? "dark" : "light"
-            setTheme(newdata)
+  return theme === "loading" ? (
+    <PageLoader></PageLoader>
+  ) : (
+    <ConsumerContext>
+      {({ data }) => (
+        <div className={`${theme}-theme`}>
+          <Header />
+          <div style={{ backgroundColor: "inherit" }}>
+            <ThemeSwitch
+              style={data.isMobile ? { top : "1vh" } : null}
+              onClick={e => {
+                let newdata = theme === "light" ? "dark" : "light"
+                setTheme(newdata)
 
-            localStorage.setItem("theme", newdata)
+                localStorage.setItem("theme", newdata)
 
-            setAnimate(true)
-            setTimeout(() => setAnimate(false), 500)
-          }}
-        >
-          {theme === "dark" ? (
-            <img
-              className={animate ? "shrink-grow" : null}
-              src={require("../../images/icons/sun.svg")}
-              alt="sun"
-            />
-          ) : (
-            <img
-              className={animate ? "shrink-grow" : null}
-              src={require("../../images/icons/moon.svg")}
-              alt="moon"
-            />
-          )}
-        </ThemeSwitch>
-        <Main style={{ backgroundColor: "inherit", minHeight: "100vh" }}>
-          {children}
-        </Main>
-        <Footer></Footer>
-      </div>
-    </div>
+                setAnimate(true)
+                setTimeout(() => setAnimate(false), 500)
+              }}
+            >
+              {theme === "dark" ? (
+                <img
+                  className={animate ? "shrink-grow" : null}
+                  src={require("../../images/icons/sun.svg")}
+                  alt="sun"
+                />
+              ) : (
+                <img
+                  className={animate ? "shrink-grow" : null}
+                  src={require("../../images/icons/moon.svg")}
+                  alt="moon"
+                />
+              )}
+            </ThemeSwitch>
+            <Main style={{ backgroundColor: "inherit", minHeight: "100vh" , paddingTop: data.isMobile ? 0 : "10vh" }}>
+              {children}
+            </Main>
+            <Footer style={{ paddingBottom : data.isMobile ? "10vh"  : 0}}></Footer>
+          </div>
+        </div>
+      )}
+    </ConsumerContext>
   )
 }
 

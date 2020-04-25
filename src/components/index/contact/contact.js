@@ -99,13 +99,16 @@ const StyledDiv = styled.div`
       animation : wigle 1s alternate infinite linear ; 
     @keyframes wigle {
       0%{
-        transform : rotateZ(-10deg);
-      }
-      50%{
         transform : rotateZ(0deg);
       }
-      100% {
+      25%{
+        transform : rotateZ(-10deg);
+      }
+      75%{
         transform : rotateZ(10deg);
+      }
+      100% {
+        transform : rotateZ(0deg);
       }
     }
     }

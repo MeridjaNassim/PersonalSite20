@@ -22,6 +22,11 @@ import radio from '../../images/featured_in/radio.png';
 
 import React from 'react';
 import loading from "../../images/icons/loading.svg"
+/// navs 
+import meroute from '../../images/icons/person.svg'
+import projectroute from '../../images/icons/project.svg'
+import blogroute from '../../images/icons/blog.svg'
+import contactroute from '../../images/icons/contact.svg'
 const Menu= {
     menu,
     close
@@ -47,6 +52,13 @@ const featuredIn = {
     radio
 }
 
+const navIcons = {
+    meroute,
+    blogroute,
+    projectroute,
+    contactroute
+}
+
 
 /// used emojis
 const HeartEmoji = <span role="img" aria-label="heart" >❤️</span>
@@ -65,5 +77,6 @@ export {
     BoxIcons ,
     Menu ,
     emojis,
-    featuredIn
+    featuredIn,
+    navIcons
 }

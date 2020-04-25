@@ -5,41 +5,50 @@ import { dropShadow } from '../effects';
 const StyledWrapper = styled.div`
     display : flex ;
     flex-direction : column;
-    position : relative ;
+    position : fixed ;
     justify-content :center;
     align-items : center;
-    width : 90%;
-    max-width : 90vw;
-    left : 25vw;
-    top : -2vh;
+    top : 20vh;
+    width : 30vw;
+    left : 35vw;
     font-family : var(--font);
-    background-color : inherit;
+    background-color : var(--grey-dark);
     ${dropShadow}
     opacity : 0;
     padding : 50px;
     text-align : center;
-    border-radius : 100px;  
+    border-radius : 100px;
+    z-index : 13;  
     border : 2px solid inherit;
-    ${props=> props.corner} : 10px;
-    transform : scale(0);
+    transform : translateY(-100vh);
     transform-origin : ${props => props.origin};
-    animation : fade 0.5s ease-out forwards ;
+    animation : drop 0.5s ease-out forwards ;
     &.close {
-        animation : fade 0.5s ease-out backwards;
+        animation : drop 0.5s ease-out backwards;
     }
     @media screen and (max-width: 768px) {
-        top : 4vh;
-        left : 0;
         margin : 10% auto;
+        width : 80vw;
+        left : 10vw;
         max-width : 90% !important ;
-    }
-    @keyframes fade {
+        @keyframes drop {
         from {
-            transform  :scale(0);
+            transform  : translateY(-100vh);
            opacity : 0
         }
         to {
-            transform  :scale(1);
+            transform : translateY(0vh);
+            opacity : 1;
+        }
+    }
+    }
+    @keyframes drop {
+        from {
+            transform  : translateY(-100vh);
+           opacity : 0
+        }
+        to {
+            transform : translateY(0vh);
             opacity : 1;
         }
     }
@@ -48,11 +57,13 @@ const StyledWrapper = styled.div`
     }
     .modal-body {
         background-color : inherit;
+        color :white;
     }
     .modal-footer {
         width : 100%;
         justify-content : space-around;
         display : flex ;
+        
         button {
             color : inherit;
             border-radius : 10px;
@@ -84,7 +95,7 @@ const Modal = (props) => {
             maxWidth : props.maxWidth,
         }}>
                 <div className="modal-header">
-                    <img src={props.error ? logos.loading : logos.PhoneGDGLogo} width="100px" height="100px" alt="logo"></img>
+                    <img src={props.error ? logos.loading : logos.logo} width="100px" height="100px" alt="logo"></img>
                 </div>
                 <div className="modal-body">
                     <p>
