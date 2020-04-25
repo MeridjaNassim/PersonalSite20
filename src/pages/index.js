@@ -9,7 +9,7 @@ const IndexPage = () => (
     <PageTransition>
     <SEO title="Home" />
     <Landing></Landing>
-    <p style={{textAlign : 'center'}}>site building progress : 40%</p>
+    <p style={{textAlign : 'center'}}>site building progress : 20%</p>
     <PageLoader loading={true} relative={true}></PageLoader>
  </PageTransition>
 )

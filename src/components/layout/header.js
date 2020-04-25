@@ -102,7 +102,17 @@ const StyledHeader = styled.header`
     top : 0;
     display : contents;
     img {
-      transform : translateY(50px);
+     
+      transform : translateY(50px) rotateZ(0deg);
+      animation : spin 2s linear alternate infinite  ;
+      @keyframes spin {
+        from {
+          transform : translateY(50px) rotateZ(0deg)
+        }
+        to {
+          transform : translateY(50px) rotateZ(180deg)
+        }
+      }
       position : relative ;
     z-index : 11;
       opacity : 0.5 !important ;

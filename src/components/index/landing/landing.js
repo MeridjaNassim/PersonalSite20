@@ -160,7 +160,13 @@ export default function Landing({ id }) {
       </Content>
       <Canvas>
         <Border>
-        <Avatar src={require('../../../images/nassim_square.jpg')}></Avatar>
+        <Avatar >
+     
+        <source type="image/webp" srcset={require('../../../images/sq_me2.webp')}/>
+          <source type="image/jpeg" srcset={require('../../../images/sq_me2.jpg')}/>
+          <img src={require('../../../images/sq_me2.jpg')} alt="Nassim Meridja"/>
+
+        </Avatar>
         </Border>
         
       </Canvas>
@@ -168,11 +174,17 @@ export default function Landing({ id }) {
   )
 }
 
-const Avatar = styled.img`
+const Avatar = styled.picture`
 margin : 0;
+display : flex ;
+justify-content :center;
+align-items :center;
 border-radius : 50%;
 border : 20px solid rgba(0,0,0,0.2);
-
+source , img {
+  border-radius: 50%;
+  margin : 0;
+}
 `
 const Border = styled.div`
 display : flex; 

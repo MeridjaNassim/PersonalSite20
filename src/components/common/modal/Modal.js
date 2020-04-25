@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import styled from 'styled-components';
+import React,{useState,useEffect} from 'react';
+import styled,{css} from 'styled-components';
 import { logos } from '../images';
 import { dropShadow } from '../effects';
 const StyledWrapper = styled.div`
@@ -9,19 +9,18 @@ const StyledWrapper = styled.div`
     justify-content :center;
     align-items : center;
     top : 20vh;
-    width : 30vw;
-    left : 35vw;
+    width : 40vw;
+    left : 30vw;
     font-family : var(--font);
-    background-color : var(--grey-dark);
     ${dropShadow}
     opacity : 0;
+    background : #fafafa;
     padding : 50px;
     text-align : center;
     border-radius : 100px;
-    z-index : 13;  
+    z-index :9999;  
     border : 2px solid inherit;
     transform : translateY(-100vh);
-    transform-origin : ${props => props.origin};
     animation : drop 0.5s ease-out forwards ;
     &.close {
         animation : drop 0.5s ease-out backwards;
@@ -48,16 +47,17 @@ const StyledWrapper = styled.div`
            opacity : 0
         }
         to {
-            transform : translateY(0vh);
+            transform : translateY(-15vh);
             opacity : 1;
         }
     }
     .modal-header {
         background-color : inherit;
+        color : #212121
     }
     .modal-body {
         background-color : inherit;
-        color :white;
+        color : #212121
     }
     .modal-footer {
         width : 100%;
@@ -88,12 +88,8 @@ const StyledWrapper = styled.div`
 `
 const Modal = (props) => {
     const [close,setClose] = useState(false);
-    let corner = props.corner ? `border-${props.corner}-radius` : 'border-top-left-radius';
-    let origin = props.corner ? props.corner.split('-').join(' ') : 'top left';
     return (
-        <StyledWrapper origin={origin} corner={corner} className={`${close ? 'close' : ""}`} style={{
-            maxWidth : props.maxWidth,
-        }}>
+        <StyledWrapper  className={`${close ? 'close' : ""}`} >
                 <div className="modal-header">
                     <img src={props.error ? logos.loading : logos.logo} width="100px" height="100px" alt="logo"></img>
                 </div>

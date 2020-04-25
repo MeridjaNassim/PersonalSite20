@@ -19,15 +19,21 @@ const Main = styled.main`
 const Layout = ({ children }) => {
   const [theme, setTheme] = useState("loading")
   const [animate, setAnimate] = useState(false)
+  const [globalThemeLoaded ,setGlobalThemeLoaded] = useState(false)
   useEffect(() => {
     let storedTheme = localStorage.getItem("theme") || "dark"
-    setTheme(storedTheme)
+    setTheme(storedTheme);
   }, [])
   return theme === "loading" ? (
     <PageLoader></PageLoader>
   ) : (
     <ConsumerContext>
-      {({ data }) => (
+      {({ data,set }) => {
+        if(!globalThemeLoaded) {
+          set({theme : theme})
+          setGlobalThemeLoaded(true)
+        } 
+        return (
         <div className={`${theme}-theme`}>
           <Header />
           <div style={{ backgroundColor: "inherit" }}>
@@ -36,9 +42,8 @@ const Layout = ({ children }) => {
               onClick={e => {
                 let newdata = theme === "light" ? "dark" : "light"
                 setTheme(newdata)
-
                 localStorage.setItem("theme", newdata)
-
+                set({theme : newdata})
                 setAnimate(true)
                 setTimeout(() => setAnimate(false), 500)
               }}
@@ -63,7 +68,7 @@ const Layout = ({ children }) => {
             <Footer style={{ paddingBottom : data.isMobile ? "10vh"  : 0}}></Footer>
           </div>
         </div>
-      )}
+      )}} 
     </ConsumerContext>
   )
 }

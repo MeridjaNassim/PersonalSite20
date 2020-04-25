@@ -4,7 +4,8 @@ import React from "react"
 const defaultContextValue = {
   data: {
     // set your initial data shape here
-    isMobile : false
+    isMobile : false,
+    theme :'light'
   },
   set: () => {},
 }
