@@ -10,9 +10,8 @@ const ContactUS = () => (
     <div className="wrapper">
       <div className="discription">
         <p>
-          We are always happy to offer advice and further information so if you
-          have any questions, complete the form below and a member of the team
-          will be in touch very soon.
+          I am always happy to offer advice and further information so if you
+          have any questions , or you are looking to hire me for your work , complete the form below and i will reach out to you as soon as possible
         </p>
       </div>
       <div className="contact">

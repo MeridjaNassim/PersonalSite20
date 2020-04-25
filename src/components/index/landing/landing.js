@@ -12,6 +12,7 @@ const Wrapper = styled.section`
   .landing-title {
     font-size: 5rem;
     .matter {
+      
       opacity :0;
       animation : fadeIn 1s 2.5s ease forwards;
     @keyframes fadeIn {
@@ -24,9 +25,6 @@ const Wrapper = styled.section`
         opacity : 1;
       }
     }
-    }
-    .matter:hover {
-      border-bottom: 5px solid var(--yellow);
     }
   }
 
@@ -139,7 +137,7 @@ export default function Landing({ id }) {
         </Hello>
         
         <h1 className="landing-title">
-          Meridja Abdellah Nassim 
+          Meridja Nassim <br></br> <span className="fade">FullStack developer</span>
         </h1>
         <Buttons>
           <Button
@@ -180,15 +178,24 @@ const Border = styled.div`
 display : flex; 
 justify-content : center;
 align-items :center;
+opacity : 0;
 border-radius : 50%;
   border : 15px solid rgba(0,0,0,0.1);
-  animation : bordercolor 1s ease-in-out alternate infinite; 
+  animation :fadeIn 0.5s 1.5s ease-out forwards,  bordercolor 1s 2s ease-in-out alternate infinite; 
   @keyframes bordercolor {
     from {
       border-color : rgba(0,0,0,0.1);
     }
     to {
       border-color : rgba(0,0,0,0);
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity :0 ;
+    }
+    to {
+      opacity : 1;
     }
   }
 `

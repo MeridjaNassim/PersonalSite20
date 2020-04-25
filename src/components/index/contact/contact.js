@@ -12,7 +12,7 @@ const Contact = () => (
       </div>
       <div className="info-container">
         <p className="title">Email</p>
-        <p className="info">gdg.algiers@esi.dz</p>
+        <p className="info">ha_meridja@esi.dz</p>
       </div>
     </div>
     <div className="row2">
@@ -20,13 +20,13 @@ const Contact = () => (
         <img alt="location" className="img2 animated-wigle" src={require("../../../images/icons/gps.svg")}></img>
       </div>
       <div className="info-container">
-        <p className="title">Adresse</p>
+        <p className="title">Adress</p>
         <p className="info">
-          BP 68M Oued Smar,
+          Cité les dune Bt A cage 12 n°270,
           <span className="br"></span>
-          El Herrach Algiers,
+          El Mohamadia Algiers,
           <span className="br"></span>
-          16309
+          16580
         </p>
       </div>
     </div>
@@ -39,8 +39,8 @@ const Contact = () => (
         ></img>
       </div>
       <div className="info-container">
-        <p className="title">Telephone</p>
-        <p className="info">+213 123 456 789</p>
+        <p className="title">Phone number</p>
+        <p className="info">+213 672 439 370</p>
       </div>
     </div>
   </StyledDiv>

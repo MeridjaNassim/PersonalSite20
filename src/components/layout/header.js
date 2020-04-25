@@ -8,40 +8,47 @@ import {navIcons} from '../common/images'
 const links = [
   {
     icon : navIcons.meroute ,
-    route : <Link to="/" className={commonStyle.link} activeClassName={commonStyle.linkActive}> ME </Link>
-  } ,  {
+    route : '/',
+    routeName : 'ME',
+  } ,   {
     icon : navIcons.blogroute ,
-    route : <Link to="/blogs" className={commonStyle.link} activeClassName={commonStyle.linkActive}> BLOGS </Link>,
-  } ,  {
+    route : '/blogs',
+    routeName : 'BLOGS',
+  } ,   {
     icon : navIcons.projectroute ,
-    route : <Link to="/projects" className={commonStyle.link} activeClassName={commonStyle.linkActive}> PROJECTS </Link>,
-  } , {
+    route : '/projects',
+    routeName : 'PROJECTS',
+  } ,  {
     icon : navIcons.contactroute ,
-    route : <Link to="/contact" className={commonStyle.link} activeClassName={commonStyle.linkActive}>CONTACT</Link>,
+    route : '/contact',
+    routeName : 'CONTACT',
   }
   
 ]
 
+
 const Header = () => {
-  const [isNavVisible, setNavVisible] = useState(false)
-  const toggleNav = () => {
-    setNavVisible(!isNavVisible)
+  const buildRouteDesktop = link=> {
+    return  <Link to={link.route} className={commonStyle.link} activeClassName={commonStyle.linkActive}>{link.routeName}</Link>
   }
   const buildRouteMobile =link=> {
-    return <TabButton className="link">
+    return <Link to={link.route} className={commonStyle.link} activeClassName={commonStyle.linkActive}>
+         <TabButton className="link">
+      
         <img src={link.icon} alt="link" width ="30px" height="30px" ></img>
-        {link.route}
-    </TabButton>
+        {link.routeName}
+      </TabButton>
+    </Link> 
   }
   return (
     <ContextConsumer>
-      {({data,set})=> {
+      {({data})=> {
 
-        return <StyledHeader isNavVisible={isNavVisible}>
+        return <StyledHeader >
         
          
           <StyledNav>{links.map(link => {
-            return data.isMobile ? buildRouteMobile(link): link.route
+            return data.isMobile ? buildRouteMobile(link): buildRouteDesktop(link)
           })}</StyledNav>
           {!data.isMobile ?<div className="hoverer">
               <img src={require('../../images/icons/compass.svg')} alt="compass" width ="30px" height="30px"  />

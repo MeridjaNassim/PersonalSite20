@@ -1,29 +1,30 @@
-import React from "react"
+import React,{useState,useEffect} from "react"
 import styled from "styled-components"
 import Modal from "../../common/modal/Modal";
 
-class Form extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showModal: false,
-      fields: {
-        name: "",
-        email: "",
-        message: "",
-      },
-      errors: {
-        name:"" ,
-        email :"",
-        message :""
-      },
-      modalMsg: "",
-      submited : false 
-    }
-    
-   
+const Form = (props)=>{
+
+  const [fields , setFields] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errors,setErrors] = useState({
+    name:"" ,
+    email :"",
+    message :""
+  });
+  const [showModal , setShowModal] = useState(false);
+  const [modalMsg, setModalMsg] = useState('');
+  const [submited,setSubmited] = useState(false);
+  const hasError = errors => {
+    return (
+      errors.name ||
+      errors.message ||
+      errors.email
+    )
   }
-  onFormSubmit = fields => {
+  const onSubmit = fields => {
     let errors = {
       name:"" ,
       email :"",
@@ -43,122 +44,112 @@ class Form extends React.Component {
     }
   
    
-    if (this.hasError(errors)) {
-      this.setState({
-        errors : errors,
-        showModal: true,
-        submited :false ,
-        modalMsg: "Please fix the errors before submiting",
-      })
+    if (hasError(errors)) {
+      setErrors(errors);
+      setShowModal(true);
+      setSubmited(false);
+      setModalMsg("Please fix the errors before submiting");
     } else if (fields.message === "") {
-      this.setState({ submited :false , showModal: true, modalMsg: "fill all form please" })
+      setSubmited(false);
+      setShowModal(true);
+      setModalMsg('Please type a message')
     } else {
-      console.log(fields)
-      this.setState({
-        fields :{
-          name: "",
-          email: "",
-          message: "",
-        },
-         errors : {
-          name:"" ,
-          email :"",
-          message :""
-        },
-        submited :true,
-        showModal: true,
-        modalMsg: "Thank you for submiting , we will reach out to you ",
+      setErrors({
+        name:"" ,
+        email :"",
+        message :""
       })
+      setFields({
+        name:"" ,
+        email :"",
+        message :""
+      })
+      setSubmited(true)
+      setShowModal(true)
+      setModalMsg("Thank you for submiting , we will reach out to you ")
     }
   }
-  hasError(errors) {
-    return (
-      errors.name ||
-      errors.message ||
-      errors.email
-    )
+  const handleChange = e => {
+    setFields({...fields ,[e.target.name ]: [e.target.value] });
+    setErrors({...errors , [e.target.name] : ""}) /// removing the error
   }
-  handleChange(e){
-    this.setState({fields : {...this.state.fields,[e.target.name ]: [e.target.value]},errors : {...this.state.errors , [e.target.name] : ""}}) // removing the error
-  }
-  render() {
-    return (
-      <div style={{ backgroundColor: "inherit" }}>
-        <StyledForm
-          className="contact-form"
-          name="contact-form"
-          method="post"
-          netlify-honeypot="bot-field"
-          data-netlify="true"
-          onSubmit={e => {
-            e.preventDefault()
-            this.onFormSubmit(this.state.fields)
-          }}
-        >
-          <input type="hidden" name="bot-field" />
-          <div className="input-row ">
-            <input
-              className={`${this.state.errors.name ? "error-border" : ""}`}
-              name="name"
-              placeholder="Name"
-              type="text"
-              id="name"
-          
-              onChange={e=>this.handleChange(e)}
-              value={this.state.fields.name}
-            />
-          </div>
-          <p className="error">
-            {this.state.errors.name ? this.state.errors.name : ""}
-          </p>
-          <div className="input-row ">
-            <input
-              className={`${this.state.errors.email ? "error-border" : ""}`}
-              name="email"
-              placeholder="Email"
-              type="email"
-              id="email"
 
-              onChange={e=>this.handleChange(e)}
-              value={this.state.fields.email}
-            />
-          </div>
-          <p className="error">
-            {this.state.errors.email ? this.state.errors.email : ""}
-          </p>
-          <div>
-            <textarea
-              className={`textarea ${
-                this.state.errors.message ? "error-border" : ""
-              }`}
-              name="message"
-              rows="5"
-              placeholder="Type something..."
-              id="message"
-              onChange={e=>this.handleChange(e)}
-              value={this.state.fields.message}
-            />
-          </div>
-          <p className="error">
-            {this.state.errors.message ? this.state.errors.message : ""}
-          </p>
-          <div>
-            <StyledButton className="button-row" type="submit">
-              Send
-            </StyledButton>
-          </div>
-        </StyledForm>
-        {this.state.showModal && (
-          <Modal
-            error={!this.state.submited }
-            close={e => this.setState({ showModal: false })}
-          >
-            {this.state.modalMsg}
-          </Modal>
-        ) }
-      </div>
-    )
-  }
+  return (
+    <div style={{ backgroundColor: "inherit" }}>
+      <StyledForm
+        className="contact-form"
+        name="contact-form"
+        method="post"
+        netlify-honeypot="bot-field"
+        data-netlify="true"
+        onSubmit={e => {
+          e.preventDefault()
+          onSubmit(fields)
+        }}
+      >
+        <input type="hidden" name="bot-field" />
+        <div className="input-row ">
+          <input
+            className={`${errors.name ? "error-border" : ""}`}
+            name="name"
+            placeholder="Name"
+            type="text"
+            id="name"
+        
+            onChange={e=>handleChange(e)}
+            value={fields.name}
+          />
+        </div>
+        <p className="error">
+          {errors.name ? errors.name : ""}
+        </p>
+        <div className="input-row ">
+          <input
+            className={`${errors.email ? "error-border" : ""}`}
+            name="email"
+            placeholder="Email"
+            type="email"
+            id="email"
+
+            onChange={e=>handleChange(e)}
+            value={fields.email}
+          />
+        </div>
+        <p className="error">
+          {errors.email ? errors.email : ""}
+        </p>
+        <div>
+          <textarea
+            className={`textarea ${
+              errors.message ? "error-border" : ""
+            }`}
+            name="message"
+            rows="5"
+            placeholder="Type something..."
+            id="message"
+            onChange={e=>handleChange(e)}
+            value={fields.message}
+          />
+        </div>
+        <p className="error">
+          {errors.message ? errors.message : ""}
+        </p>
+        <div>
+          <StyledButton className="button-row" type="submit">
+            Send
+          </StyledButton>
+        </div>
+      </StyledForm>
+      {showModal && (
+        <Modal
+          error={!submited }
+          close={e => setShowModal(false)}
+        >
+          {modalMsg}
+        </Modal>
+      ) }
+    </div>
+  )
 }
 
 const StyledForm = styled.form`
@@ -173,7 +164,7 @@ const StyledForm = styled.form`
     width: 100%;
     padding-left: 2vw;
     font-size: 20px;
-    border: solid 2px #e0e0e0;
+    border: solid 1px rgba(128,128,128,0.5);
     background-color: inherit;
     resize: none;
     color: #9d9c9c;
@@ -226,19 +217,24 @@ const StyledForm = styled.form`
     color: var(--red);
   }
   @media (max-width: 768px) {
+    
     input[type="text"],
     input[type="email"] {
       height: 8vw;
+      padding : 30px;
+      font-size : 14px;
       border-radius: 5vw;
     }
 
     textarea {
+      padding :0 30px;
+      font-size : 14px;
       border-radius: 2vw;
     }
 
     .textarea {
       height: 35vw;
-      padding-top: 1vw;
+      padding-top: 30px;
     }
 
     width: 80vw;
