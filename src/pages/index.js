@@ -11,7 +11,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <Landing content={index.landing}></Landing>
     <About content={index.about}></About>
-    <p style={{textAlign : 'center'}}>site building progress : 22% </p>
+    <p style={{textAlign : 'center'}}>site building progress : <span style={{color :'var(--red)'}}>22%</span> </p>
     
  </PageTransition>
 )

@@ -14,7 +14,7 @@ const About = ({content}) => {
 
         </p>
         <Button >
-        <DownloadCV href={content.downloadCVpath}>{content.downloadText}</DownloadCV>
+        <DownloadCV href={content.downloadCVpath} download>{content.downloadText}</DownloadCV>
         </Button>
         
       </Content>

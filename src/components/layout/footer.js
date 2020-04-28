@@ -7,32 +7,7 @@ import { emojis } from "../common/images"
 const Footer = ({style}) => (
   <StyledFooter style={style}>
     <div className="row1">
-      <div className="content">
-        <p>About</p>
-        <div>
-          <ExternalLink
-            url="https://www.wtm-algiers.tech/"
-            text="WTM Algiers"
-          ></ExternalLink>
-          <ExternalLink
-            url="https://distracted-davinci-c6a17d.netlify.app/"
-            text="GDG Algiers"
-          ></ExternalLink >
-          <ExternalLink url='https://cse.club/' text="Club Scientifique de L'ESI">
 
-          </ExternalLink>
-        </div>
-      </div>
-      <div className="content">
-        <p>Information</p>
-        <div>
-          <p className="contact">ha_meridja@esi.dz</p>
-          <p className="contact">+213 672 439 370</p>
-          <p className="contact"> Algiers, Algeria</p>
-          <ExternalLink url="https://esi.dz" text="Ecole Nationale Supérieure d'informatique"></ExternalLink>
-          
-        </div>
-      </div>
       <div className="social-media">
         <p>Follow Me</p>
         <div className="sm">
@@ -96,7 +71,9 @@ const StyledFooter = styled.footer`
   justify-content: start;
   display: flex;
   flex-direction: column;
-
+  -webkit-box-shadow: -1px -3px 23px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: -1px -3px 23px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px -3px 23px 5px rgba(0, 0, 0, 0.1);
   align-items: center;
 
   .row3 {
@@ -135,40 +112,12 @@ const StyledFooter = styled.footer`
     display: flex;
     flex-wrap: wrap;
     width: 80%;
-    justify-content: space-evenly;
-    .content {
-      align-items: flex-start;
-      width: 33%;
-      display: flex;
-      justify-content: space-evenly;
-      p.contact {
-        margin-bottom : 10px;
-        color : inherit;
-      }
-      p {
-        margin: 0;
-        font-size: 100%;
-        color: var(--green);
-        font-family: inherit;
-        font-size: 100%;
-        font-weight: 550;
-      }
-      div {
-        a {
-          display: block;
-          cursor: pointer;
-          text-decoration: none;
-          margin-bottom: 10px;
-          color: inherit;
-          font-family: inherit;
-          font-size: 100%;
-          font-weight: 550;
-       
-        }
-      }
-    }
+    padding-top : 2vh;
+    margin-bottom : 2vh;
+    justify-content: center;
     .social-media {
       display: flex;
+      justify-content :center;
       width: 33%;
       p {
         margin: 0;
@@ -201,23 +150,7 @@ const StyledFooter = styled.footer`
   @media screen and (max-width: 1024px) {
     .row1 {
       width: 100%;
-      .content {
-        margin-bottom: 10%;
-        align-items: center;
-        justify-content: start;
-        width: 50%;
-        flex-direction: column;
-        p {
-          text-align: left;
-          margin-bottom: 5%;
-          font-size: 100%;
-        }
-        div {
-          a ,p{
-            text-align: center;
-          }
-        }
-      }
+      
       .social-media {
         flex-direction: row;
         width: 100%;
