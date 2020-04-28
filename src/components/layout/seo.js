@@ -69,6 +69,7 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
+      <noscript>This Site works better with JavaScript enabled</noscript>
       <link  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
       <link  href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
     </Helmet>

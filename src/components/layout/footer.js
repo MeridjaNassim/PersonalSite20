@@ -163,9 +163,7 @@ const StyledFooter = styled.footer`
           font-family: inherit;
           font-size: 100%;
           font-weight: 550;
-          &:visited {
-            color: var(--grey);
-          }
+       
         }
       }
     }
@@ -199,8 +197,8 @@ const StyledFooter = styled.footer`
       }
     }
   }
-
-  @media screen and (max-width: 768px) {
+  
+  @media screen and (max-width: 1024px) {
     .row1 {
       width: 100%;
       .content {

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-const Contact = () => (
+
+const Contact = ({content}) => (
   <StyledDiv>
     <div className="row">
       <div className="img-container">
@@ -11,8 +12,8 @@ const Contact = () => (
         ></img>
       </div>
       <div className="info-container">
-        <p className="title">Email</p>
-        <p className="info">ha_meridja@esi.dz</p>
+<p className="title">{content.email.text}</p>
+        <p className="info">{content.email.adress}</p>
       </div>
     </div>
     <div className="row2">
@@ -20,13 +21,9 @@ const Contact = () => (
         <img alt="location" className="img2 animated-wigle" src={require("../../../images/icons/gps.svg")}></img>
       </div>
       <div className="info-container">
-        <p className="title">Adress</p>
-        <p className="info">
-          Cité les dune Bt A cage 12 n°270,
-          <span className="br"></span>
-          El Mohamadia Algiers,
-          <span className="br"></span>
-          16580
+        <p className="title">{content.adress.text}</p>
+        <p className="info" dangerouslySetInnerHTML={{__html : content.adress.adr}}>
+         
         </p>
       </div>
     </div>
@@ -39,15 +36,15 @@ const Contact = () => (
         ></img>
       </div>
       <div className="info-container">
-        <p className="title">Phone number</p>
-        <p className="info">+213 672 439 370</p>
+<p className="title">{content.phone.text}</p>
+<p className="info">{content.phone.number}</p>
       </div>
     </div>
   </StyledDiv>
 )
 const StyledDiv = styled.div`
   font-family: var(--font);
-  max-width: 28vw;
+  max-width: 90vw;
   height: auto;
 
   background-color: inherit;
@@ -126,7 +123,7 @@ const StyledDiv = styled.div`
    
   }
   @media (max-width: 768px) {
-    max-width: 60vw;
+    max-width: 90vw;
     height: auto;
     background-color: inherit;
     margin-bottom: 14vw;

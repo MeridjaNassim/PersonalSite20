@@ -5,7 +5,7 @@ import Modal from "../../common/modal/Modal"
 const INVALID_EMAIL = "Please put a valid email"
 const REGISTERING = "Registering..."
 const THANKS = "Thank you for registering to our newsletter"
-const NewsLetter = () => {
+const NewsLetter = ({content}) => {
   const [email, setEmail] = useState("")
   const [error, setError] = useState({
     isError: true,
@@ -49,8 +49,8 @@ const NewsLetter = () => {
           {showModal.msg}
         </Modal>
       ) : null}
-      <h1 className="title">Subscribe to my newsletter</h1>
-      <p className="info">get latest updates about projects and blogs</p>
+      <h1 className="title">{content.header}</h1>
+      <p className="info">{content.text}</p>
       <div>
         <input
           name="email"
@@ -63,7 +63,7 @@ const NewsLetter = () => {
             setEmail(e.target.value)
           }}
         />
-        <StyledButton onClick={handleSubmit}>SIGN UP</StyledButton>
+        <StyledButton onClick={handleSubmit}>{content.buttontext}</StyledButton>
       </div>
     </StyledDiv>
   )

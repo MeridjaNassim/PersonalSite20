@@ -4,18 +4,17 @@ import Contact from "./contact.js"
 import Form from "./form.js"
 import NewsLetter from "./newsLetter.js"
 
-const ContactUS = () => (
+const ContactUS = ({content}) => (
   <StyledSection id="contact">
-    <BigTitle>Contact us</BigTitle>
+    <BigTitle>{content.landing.header}</BigTitle>
     <div className="wrapper">
       <div className="discription">
         <p>
-          I am always happy to offer advice and further information so if you
-          have any questions , or you are looking to hire me for your work , complete the form below and i will reach out to you as soon as possible
+          {content.landing.text}
         </p>
       </div>
       <div className="contact">
-        <Contact></Contact>
+        <Contact content={content.contacts}></Contact>
       </div>
 
       <div className="form">
@@ -30,7 +29,7 @@ const ContactUS = () => (
         ></img>
       </div>
     </div>
-    <NewsLetter></NewsLetter>
+    <NewsLetter content={content.newsletter}></NewsLetter>
   </StyledSection>
 )
 const StyledSection = styled.div`

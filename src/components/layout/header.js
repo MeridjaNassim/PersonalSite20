@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { dropShadow } from "../common/effects"
 import commonStyle from './common.module.css'

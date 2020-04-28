@@ -1,0 +1,31 @@
+{
+    "landing" :  {
+        "header" :"Hello I am",
+        "landingText" : "Meridja Nassim",
+        "profession" :"Full-Stack Developer",
+        "buttonLeft" : {
+            "text" : "ABOUT ME",
+            "link" : "#about"
+        },
+        "buttonRight" : {
+            "text" : "SEE PROJECTS",
+            "link" :"/projects"
+        },
+        "profileImg" : {
+            "webpsource" : "sq_me2.webp",
+            "jpgsource" :"sq_me2.jpg",
+            "alt" :"Meridja Nassim"
+        }
+    } , 
+    "about" :{
+        "header" :"About Me",
+        "illustration" : {
+            "path" :"illustrations/developer.svg",
+            "alt" :"developer"
+        } , 
+        "text" :" 3rd year Computer Science student at ESI , part-time Full Stack developer , interested in technology development and inspiring to become a tech lead , looking for opportunities to develop my skills and bring about change . I have worked on multiple projects and side-projects in different paths namely : <i class='field'>Web Development</i> , <i class='field'>Mobile Development</i> , <i class='field'>Data science</i> ... and looking to start my own business in development ." ,
+        "downloadCVpath" : "./MeridjaNassimCV.pdf" ,
+        "downloadText" :"Download CV"
+    }
+   
+}

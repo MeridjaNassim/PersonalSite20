@@ -1,0 +1,27 @@
+{
+    "landing" : {
+        "header" : "Contact Me",
+        "text" :"  I am always happy to offer advice and further information so if you have any questions , or you are looking to hire me for your work , complete the form below and i will reach out to you as soon as possible"
+    },
+    
+    "contacts" : {
+        "email" :{
+            "text" : "Email" ,
+            "adress" :"ha_meridja@esi.dz"
+        } ,
+        "adress" : {
+            "text" :"Adress" ,
+            "adr" :" Cité les dune Bt A cage 12 n°270,<span class='br'></span>El Mohamadia Algiers,<span class='br'></span>16580"
+        },
+        "phone" : {
+            "text" :"Phone",
+            "number" :"+213 672 439 370"
+        }
+    },
+    "newsletter" : {
+        "header" :"Subscribe to my newsletter" ,
+        "text" : "get latest updates about my projects and blogs",
+        "buttontext" :"SIGN UP"
+    } 
+    
+}

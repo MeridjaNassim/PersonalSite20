@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react';
-import styled,{css} from 'styled-components';
+import React,{useState} from 'react';
+import styled from 'styled-components';
 import { logos } from '../images';
 import { dropShadow } from '../effects';
 const StyledWrapper = styled.div`

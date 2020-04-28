@@ -1,7 +1,51 @@
 import React from "react"
 import styled from "styled-components"
-import Button from "../../common/button/GDGButton"
 import { navigate } from "gatsby"
+import {Button} from '../../common/button/CustomButton';
+
+export default function Landing({ content}) {
+  
+  return (
+    <Wrapper id="ME">
+      <Content>
+        <Hello>
+  <h3>{content.header}</h3>
+        </Hello>
+        
+        <h1 className="landing-title">
+  {content.landingText} <br></br> <span className="fade">{content.profession}</span>
+        </h1>
+        <Buttons>
+          <Button
+            onClick={e => {
+              e.preventDefault();
+              navigate(content.buttonLeft.link)}}
+          >{content.buttonLeft.text}</Button>
+          <div className="gap"></div>
+          <Button
+           
+            onClick={e =>{ 
+              e.preventDefault();
+              navigate(content.buttonRight.link)
+            }}
+          >{content.buttonRight.text}</Button>
+        </Buttons>
+      </Content>
+      <Canvas>
+        <Border>
+        <Avatar >
+     
+        <source type="image/webp" srcset={require(`../../../images/${content.profileImg.webpsource}`)}/>
+          <source type="image/jpeg" srcset={require(`../../../images/${content.profileImg.jpgsource}`)}/>
+          <img src={require(`../../../images/${content.profileImg.jpgsource}`)} alt={content.profileImg.alt}/>
+
+        </Avatar>
+        </Border>
+        
+      </Canvas>
+    </Wrapper>
+  )
+}
 const Wrapper = styled.section`
   width: 70%;
   height: 90vh;
@@ -10,7 +54,7 @@ const Wrapper = styled.section`
   display: flex;
   background-color: inherit;
   .landing-title {
-    font-size: 5rem;
+    font-size: 4rem;
     .matter {
       
       opacity :0;
@@ -36,7 +80,7 @@ const Wrapper = styled.section`
     flex-direction: column-reverse;
     align-items : center;
     .landing-title {
-      width: 90%;
+      width: 100%;
       margin: 20px auto;
       text-align: center;
       font-size: 2rem;
@@ -45,15 +89,7 @@ const Wrapper = styled.section`
   @media screen and (max-width: 370px) {
     padding-left: 0;
     padding-top: 4vh;
-    justify-content: flex-end;
-    flex-direction: column-reverse;
 
-    .landing-title {
-      width: 90%;
-      margin: 20px auto;
-      text-align: center;
-      font-size: 2rem;
-    }
   }
 `
 const Buttons = styled.div`
@@ -74,9 +110,9 @@ const Buttons = styled.div`
   }
  
 `
+
 const Content = styled.div`
   position: relative;
-  
   width: 80%;
   animation : enter 0.5s ease forwards;
     opacity : 0;
@@ -128,62 +164,21 @@ background : var(--green);
     margin : auto;
   }
 `
-export default function Landing({ id }) {
-  return (
-    <Wrapper id="ME">
-      <Content>
-        <Hello>
-        <h3>Hello am</h3>
-        </Hello>
-        
-        <h1 className="landing-title">
-          Meridja Nassim <br></br> <span className="fade">FullStack developer</span>
-        </h1>
-        <Buttons>
-          <Button
-            title="ABOUT ME"
-            outlined={true}
-            onClick={e => {
-              e.preventDefault();
-              navigate("#about")}}
-          ></Button>
-          <div className="gap"></div>
-          <Button
-            title="SEE PROJECTS"
-            outlined={false}
-            onClick={e =>{ 
-              e.preventDefault();
-              navigate("/projects")
-            }}
-          ></Button>
-        </Buttons>
-      </Content>
-      <Canvas>
-        <Border>
-        <Avatar >
-     
-        <source type="image/webp" srcset={require('../../../images/sq_me2.webp')}/>
-          <source type="image/jpeg" srcset={require('../../../images/sq_me2.jpg')}/>
-          <img src={require('../../../images/sq_me2.jpg')} alt="Nassim Meridja"/>
-
-        </Avatar>
-        </Border>
-        
-      </Canvas>
-    </Wrapper>
-  )
-}
-
 const Avatar = styled.picture`
 margin : 0;
 display : flex ;
 justify-content :center;
 align-items :center;
 border-radius : 50%;
+max-width : 300px;
+max-height : 300px;
+max-width : 400px;
+max-height : 400px;
 border : 20px solid rgba(0,0,0,0.2);
 source , img {
   border-radius: 50%;
   margin : 0;
+ 
 }
 `
 const Border = styled.div`
@@ -193,7 +188,7 @@ align-items :center;
 opacity : 0;
 border-radius : 50%;
   border : 15px solid rgba(0,0,0,0.1);
-  animation :fadeIn 0.5s 1.5s ease-out forwards,  bordercolor 1s 2s ease-in-out alternate infinite; 
+  animation :fadeIn 1s 0.5s ease-out forwards,  bordercolor 1s 1.5s ease-in-out alternate infinite; 
   @keyframes bordercolor {
     from {
       border-color : rgba(0,0,0,0.1);
