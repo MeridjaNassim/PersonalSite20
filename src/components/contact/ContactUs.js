@@ -21,11 +21,11 @@ const ContactUS = ({content}) => (
         <Form></Form>
       </div>
 
-      <div>
+      <div className="email-icon">
         <img
           className="email"
           alt="email"
-          src={require("../../../images/icons/email.svg")}
+          src={require("../../images/icons/email.svg")}
         ></img>
       </div>
     </div>
@@ -76,6 +76,9 @@ const StyledSection = styled.div`
     margin-right: 5%;
     .wrapper {
       margin-bottom : 20%;
+      .email-icon {
+        display : none;
+      }
     }
     .email {
       display: none;

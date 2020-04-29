@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import {Button} from '../../common/button/CustomButton';
+import Button from '../../common/button/CustomButton';
 const About = ({content}) => {
   return (
     <Wrapper id="about">

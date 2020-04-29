@@ -26,6 +26,26 @@
         "text" :" 3rd year Computer Science student at ESI , part-time Full Stack developer , interested in technology development and inspiring to become a tech lead , looking for opportunities to develop my skills and bring about change . I have worked on multiple projects and side-projects in different paths namely : <i class='field'>Web Development</i> , <i class='field'>Mobile Development</i> , <i class='field'>Data science</i> ... and looking to start my own business in development ." ,
         "downloadCVpath" : "./MeridjaNassimCV.pdf" ,
         "downloadText" :"Download CV"
+    },
+    "services" : {
+        "header" : "What I offer" ,
+        "items" :[
+            {
+                "serviceTitle" : "Web Developement",
+                "serviceContent" :"I like building things , bringing my ideas to reality , and web developement is the tool that made it possible for me , thats why am always up-to-date in this topic" ,
+                "route" :"/projects/webdev"
+            },
+            {
+                "serviceTitle" : "Mobile Developement",
+                "serviceContent" :"Mobiles are a an essential part of our lives ,which is why i aim to make them better with my apps" ,
+                "route" :"/projects/mobiledev"
+            },
+            {
+                "serviceTitle" :"Data Science",
+                "serviceContent" :"I thrive to be a data scientist in the future , thats why i research this topic as much as i can and try to build real-life projects",
+                "route" :"/projects/datascience"
+            }
+        ]
     }
    
 }

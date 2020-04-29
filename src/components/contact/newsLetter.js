@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import Modal from "../../common/modal/Modal"
-import {encode} from '../../../utils/encoding'
+import Modal from "../common/modal/Modal"
+import {encode} from '../../utils/encoding'
 const INVALID_EMAIL = "Please put a valid email"
 const REGISTERING = "Registering..."
 const THANKS = "Thank you for registering to our newsletter"
@@ -19,8 +19,8 @@ const NewsLetter = ({content}) => {
     if (!valid) setError({ isError: true, msg: INVALID_EMAIL })
     return valid
   }
-  const handleSubmit = async e => {
-
+  const handleSubmit = e => {
+    const form = e.target
     if (!validEmail()) {
       setShowModal({ show: true, msg: error.msg })
     } else {
@@ -29,7 +29,7 @@ const NewsLetter = ({content}) => {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "newsletter", ...{email : email} })
+        body: encode({ "form-name": form.getAttribute('name'), ...{email : email} })
       })
         .then(() => {
           setError({ isError: false })
@@ -41,6 +41,7 @@ const NewsLetter = ({content}) => {
           setShowModal({ show: true, msg: ERROR_SEND })
         });
     }
+    e.preventDefault();
   }
   const reset = () => {
     setEmail("")
@@ -61,7 +62,7 @@ const NewsLetter = ({content}) => {
       ) : null}
       <h1 className="title">{content.header}</h1>
       <p className="info">{content.text}</p>
-      <form name="newsletter" netlify>
+      <form name="newsletter" data-netlify={true} onSubmit={handleSubmit}>
         <input
           name="email"
           placeholder="Email"
@@ -73,10 +74,7 @@ const NewsLetter = ({content}) => {
             setEmail(e.target.value)
           }}
         />
-        <StyledButton onClick={e=> {
-          handleSubmit();
-          e.preventDefault();
-        }}>{content.buttontext}</StyledButton>
+        <StyledButton type="submit" >{content.buttontext}</StyledButton>
       </form>
     </StyledDiv>
   )

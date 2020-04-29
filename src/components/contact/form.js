@@ -1,7 +1,8 @@
 import React,{useState} from "react"
 import styled from "styled-components"
-import Modal from "../../common/modal/Modal";
-import {encode} from '../../../utils/encoding'
+import Modal from "../common/modal/Modal";
+import {encode} from '../../utils/encoding'
+
 const Form = (props)=>{
 
   const [fields , setFields] = useState({
@@ -24,7 +25,8 @@ const Form = (props)=>{
       errors.email
     )
   }
-  const onSubmit = fields => {
+  const handleSubmit = e => {
+    const form = e.target
     let errors = {
       name:"" ,
       email :"",
@@ -70,7 +72,7 @@ const Form = (props)=>{
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...fields })
+        body: encode({ "form-name": form.getAttribute('name'), ...fields })
       })
         .then(() => {
           setSubmited(true)
@@ -86,6 +88,7 @@ const Form = (props)=>{
       
      
     }
+    e.preventDefault();
   }
   const handleChange = e => {
     setFields({...fields ,[e.target.name ]: [e.target.value] });
@@ -97,11 +100,8 @@ const Form = (props)=>{
       <StyledForm
         className="contact-form"
         name="contact"
-        netlify
-        onSubmit={e => {
-          onSubmit(fields)
-          e.preventDefault();
-        }}
+        data-netlify={true}
+        onSubmit={handleSubmit}
       >
         <input type="hidden"  />
         <div className="input-row ">
@@ -233,7 +233,8 @@ const StyledForm = styled.form`
     color: var(--red);
   }
   @media (max-width: 768px) {
-    
+    height : auto ;
+    min-height:80vw;
     input[type="text"],
     input[type="email"] {
       height: 8vw;
@@ -254,7 +255,7 @@ const StyledForm = styled.form`
     }
 
     width: 80vw;
-    height: 80vw;
+
     font-size: 3vw;
 
     .input-row,

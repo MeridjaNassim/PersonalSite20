@@ -1,12 +1,28 @@
-import styled from 'styled-components'
-
-export const Button = styled.button`
-padding : 15px;
-background : ${props=> props.transparent ? 'transparent' : 'inherit'};
-color : inherit ;
-outline : none;
-cursor : pointer;
-font-family : var(--font-header);
-border : 2px ${props => props.solid ? 'solid' : 'dashed'} inherit;
-border-radius : 20px;
+import styled, { css } from "styled-components"
+import ConsumerContext from "../../../context/Context"
+import React from "react"
+import {neumorphism} from '../effects'
+// button
+export default ({ children, onClick }) => {
+  return (
+    <ConsumerContext>
+      {({ data }) => {
+        return (
+          <CustomButton theme={data.theme} onClick={onClick}>
+            {children}
+          </CustomButton>
+        )
+      }}
+    </ConsumerContext>
+  )
+}
+const CustomButton = styled.button`
+  padding: 15px;
+  color: inherit;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--font-header);
+  transition: 0.5s ease;
+  border: none;
+  ${neumorphism}
 `
