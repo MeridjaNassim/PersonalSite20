@@ -97,6 +97,7 @@ const Form = (props)=>{
       <StyledForm
         className="contact-form"
         name="contact"
+        netlify
         onSubmit={e => {
           onSubmit(fields)
           e.preventDefault();

@@ -61,7 +61,7 @@ const NewsLetter = ({content}) => {
       ) : null}
       <h1 className="title">{content.header}</h1>
       <p className="info">{content.text}</p>
-      <form name="newsletter">
+      <form name="newsletter" netlify>
         <input
           name="email"
           placeholder="Email"
