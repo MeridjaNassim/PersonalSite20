@@ -1,7 +1,7 @@
 import React,{useState} from "react"
 import styled from "styled-components"
 import Modal from "../../common/modal/Modal";
-
+import {encode} from '../../../utils/encoding'
 const Form = (props)=>{
 
   const [fields , setFields] = useState({
@@ -64,9 +64,27 @@ const Form = (props)=>{
         email :"",
         message :""
       })
-      setSubmited(true)
+      setSubmited(false)
       setShowModal(true)
-      setModalMsg("Thank you for submiting , we will reach out to you ")
+      setModalMsg("Sending your email...")
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...fields })
+      })
+        .then(() => {
+          setSubmited(true)
+          setShowModal(true)
+          setModalMsg("Thank you for submiting , we will reach out to you ")
+        })
+        .catch(error => {
+          setSubmited(false)
+          setShowModal(true)
+          setModalMsg("Error occured , we could'nt send your message ")
+        });
+
+      
+     
     }
   }
   const handleChange = e => {
@@ -78,16 +96,13 @@ const Form = (props)=>{
     <div style={{ backgroundColor: "inherit" }}>
       <StyledForm
         className="contact-form"
-        name="contact-form"
-        method="post"
-        netlify-honeypot="bot-field"
-        data-netlify="true"
+        name="contact"
         onSubmit={e => {
-          e.preventDefault()
           onSubmit(fields)
+          e.preventDefault();
         }}
       >
-        <input type="hidden" name="bot-field" />
+        <input type="hidden"  />
         <div className="input-row ">
           <input
             className={`${errors.name ? "error-border" : ""}`}

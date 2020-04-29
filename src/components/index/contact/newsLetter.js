@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import Modal from "../../common/modal/Modal"
-
+import {encode} from '../../../utils/encoding'
 const INVALID_EMAIL = "Please put a valid email"
 const REGISTERING = "Registering..."
 const THANKS = "Thank you for registering to our newsletter"
+const ERROR_SEND = "Error while sending your email";
+
 const NewsLetter = ({content}) => {
   const [email, setEmail] = useState("")
   const [error, setError] = useState({
@@ -18,24 +20,32 @@ const NewsLetter = ({content}) => {
     return valid
   }
   const handleSubmit = async e => {
-    e.preventDefault()
 
     if (!validEmail()) {
       setShowModal({ show: true, msg: error.msg })
     } else {
       /// async request to endpoint
-
       setShowModal({ show: true, msg: REGISTERING })
-      setTimeout(() => {
-        setError({ isError: false })
-        setShowModal({ show: true, msg: THANKS })
-      }, 1000)
-      setTimeout(() => reset(), 5000)
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "newsletter", ...{email : email} })
+      })
+        .then(() => {
+          setError({ isError: false })
+          setShowModal({ show: true, msg: THANKS })
+          setTimeout(() => reset(), 5000)
+        })
+        .catch(error => {
+          setError({ isError: true })
+          setShowModal({ show: true, msg: ERROR_SEND })
+        });
     }
   }
   const reset = () => {
     setEmail("")
     setError({ isError: true, msg: INVALID_EMAIL })
+    setShowModal({show: false , msg: ''})
   }
   return (
     <StyledDiv>
@@ -51,7 +61,7 @@ const NewsLetter = ({content}) => {
       ) : null}
       <h1 className="title">{content.header}</h1>
       <p className="info">{content.text}</p>
-      <div>
+      <form name="newsletter">
         <input
           name="email"
           placeholder="Email"
@@ -63,8 +73,11 @@ const NewsLetter = ({content}) => {
             setEmail(e.target.value)
           }}
         />
-        <StyledButton onClick={handleSubmit}>{content.buttontext}</StyledButton>
-      </div>
+        <StyledButton onClick={e=> {
+          handleSubmit();
+          e.preventDefault();
+        }}>{content.buttontext}</StyledButton>
+      </form>
     </StyledDiv>
   )
 }
