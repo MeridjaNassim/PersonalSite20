@@ -28,11 +28,11 @@ const NewsLetter = ({content}) => {
       /// async request to endpoint
       setShowModal({ show: true, msg: REGISTERING })
       fetch("/", {
-        method: "POST",
+        method: "post",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": form.getAttribute('name'), ...{email : email} })
       })
-        .then(() => {
+        .then((res) => {
           setError({ isError: false })
           setShowModal({ show: true, msg: THANKS })
           setTimeout(() => reset(), 5000)
@@ -61,7 +61,8 @@ const NewsLetter = ({content}) => {
       ) : null}
       <h1 className="title">{content.header}</h1>
       <p className="info">{content.text}</p>
-      <form  name="newsletter" data-netlify={true} onSubmit={handleSubmit}>
+      <form  name="newsletter" data-netlify={true} onSubmit={handleSubmit}  method ="POST">
+      <input type="hidden" name="newsletter" value="Contact Me" />
         <input
           name="email"
           placeholder="Email"

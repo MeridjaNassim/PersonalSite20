@@ -71,11 +71,11 @@ const Form = (props)=>{
       setShowModal(true)
       setModalMsg("Sending your email...")
       fetch("/", {
-        method: "POST",
+        method: "post",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": form.getAttribute('name'), ...fields })
       })
-        .then(() => {
+        .then((res) => {
           setSubmited(true)
           setShowModal(true)
           setModalMsg("Thank you for submiting , we will reach out to you ")
@@ -99,11 +99,12 @@ const Form = (props)=>{
     <div style={{ backgroundColor: "inherit" }}>
       <StyledForm
         className="contact-form"
-        name="contact"
+        name="contact-me"
         data-netlify={true}
+        method ="POST"
         onSubmit={handleSubmit}
       >
-        <input type="hidden"  />
+         <input type="hidden" name="contact-me" value="Contact Me" />
         <div className="input-row ">
           <input
             className={`${errors.name ? "error-border" : ""}`}
