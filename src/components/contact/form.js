@@ -26,6 +26,7 @@ const Form = (props)=>{
     )
   }
   const handleSubmit = e => {
+    e.preventDefault();
     const form = e.target
     let errors = {
       name:"" ,

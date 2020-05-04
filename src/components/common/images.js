@@ -7,7 +7,7 @@ import projectroute from '../../images/icons/project.svg'
 import blogroute from '../../images/icons/blog.svg'
 import contactroute from '../../images/icons/contact.svg'
 const logos = {
- logo
+ logo, loading
 }
 
 

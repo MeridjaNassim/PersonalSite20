@@ -2,6 +2,31 @@ import React,{useState} from 'react';
 import styled from 'styled-components';
 import { logos } from '../images';
 import { dropShadow } from '../effects';
+
+const Modal = (props) => {
+    const [close,setClose] = useState(false);
+    return (
+        <StyledWrapper  className={`${close ? 'close' : ""}`} >
+                <div className="modal-header">
+                    <img src={props.error ? logos.loading : logos.logo} width="100px" height="100px" alt="logo"></img>
+                </div>
+                <div className="modal-body">
+                    <p>
+                      {props.children}
+                    </p>
+                </div>
+                <div className="modal-footer">
+                   
+                    <button className="btn-continue" onClick={e=> {
+                        props.close(e);
+                        setClose(true)
+                    }}>continue</button>
+                </div>
+          
+        </StyledWrapper>
+    )
+}
+
 const StyledWrapper = styled.div`
     display : flex ;
     flex-direction : column;
@@ -17,7 +42,7 @@ const StyledWrapper = styled.div`
     background : #fafafa;
     padding : 50px;
     text-align : center;
-    border-radius : 100px;
+    border-radius : 20px;
     z-index :9999;  
     border : 2px solid inherit;
     transform : translateY(-100vh);
@@ -86,28 +111,4 @@ const StyledWrapper = styled.div`
 
     }
 `
-const Modal = (props) => {
-    const [close,setClose] = useState(false);
-    return (
-        <StyledWrapper  className={`${close ? 'close' : ""}`} >
-                <div className="modal-header">
-                    <img src={props.error ? logos.loading : logos.logo} width="100px" height="100px" alt="logo"></img>
-                </div>
-                <div className="modal-body">
-                    <p>
-                      {props.children}
-                    </p>
-                </div>
-                <div className="modal-footer">
-                   
-                    <button className="btn-continue" onClick={e=> {
-                        props.close(e);
-                        setClose(true)
-                    }}>continue</button>
-                </div>
-          
-        </StyledWrapper>
-    )
-}
-
 export default Modal;

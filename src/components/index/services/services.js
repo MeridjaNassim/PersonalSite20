@@ -18,6 +18,7 @@ export default function services({content}) {
 
 
 const Wrapper = styled.section`
+ margin-top : 10%;
     width : 100%;
     h1 {
         text-align :center;

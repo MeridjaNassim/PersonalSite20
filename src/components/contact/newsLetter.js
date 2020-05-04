@@ -20,7 +20,8 @@ const NewsLetter = ({content}) => {
     return valid
   }
   const handleSubmit = e => {
-    const form = e.target
+    e.preventDefault();
+    const form = e.target;
     if (!validEmail()) {
       setShowModal({ show: true, msg: error.msg })
     } else {
@@ -53,7 +54,6 @@ const NewsLetter = ({content}) => {
         <Modal
           corner="bottom-left"
           error={error.isError}
-          maxWidth="40%"
           close={e => setShowModal(false)}
         >
           {showModal.msg}

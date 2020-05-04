@@ -52,6 +52,42 @@
                 "alt" :"datascience"
             }
         ]
+    },
+    "academics" : {
+        "header" : "Academics" ,
+        "description" :"Iam currently a 3rd year student at <a href=\"https://www.esi.dz\" target=\"_blank\" rel=\"noopener noreferrer\">Ecole nationale supérieure d'informatique Algiers , ESI </a> , here are some of our curriculum subjects ",
+        "items" : [
+            {
+                "image" : "code.svg",
+                "alt" :"algorithms",
+                "title" :"Algorithms Design & Analysis",
+                "text" :"Good understanding of algorithm design methodolgy and problem solving patterns , knowledge of sorting & searching algorithms , good manipulation of Data Structures like : Trees , Maps , Graphs and in-depth understanding of algorithm complexity and analysis  "
+            },
+            {
+                "image" : "database.svg",
+                "alt" :"databases",
+                "title" :"Database Design",
+                "text" :"Good background in databases design , conceptual design using E/R diagrams ,logical design relationnal diagrams, and physical implementation of databases using RDBMSs like MySQL , experienced with NoSQL DBs like : MongoDB"
+            },
+            {
+                "image" : "software.svg",
+                "alt" :"igl",
+                "title" :"Software Design & Architecture",
+                "text" :"Excellente background in software design and architectures , experience with microservices and design patterns put into practice through different projetcs , embracing Test Driven Developement & Clean architecture , good grasp with SOLID principles"
+            },
+            {
+                "image" : "csharp.svg",
+                "alt" :"oop",
+                "title" :"Object-oriented programming",
+                "text" :"Good background in object-oriented design and programming using differents languages like Java , C# , Python ."
+            },
+            {
+                "image" : "stats.svg",
+                "alt" :"stats",
+                "title" :"Statistics",
+                "text" :"Great background in statistics and probability theory , estimation and problem modeling , Hypothesis testing and statistical learning , had top grades in this subject"
+            }
+        ] 
     }
    
 }

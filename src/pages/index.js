@@ -4,6 +4,7 @@ import Landing from "../components/index/landing/landing"
 import PageTransition from 'gatsby-plugin-page-transitions'
 import About from "../components/index/about/About"
 import Services from '../components/index/services/services'
+import Academics from "../components/index/Academics/Academics"
 import index from '../content/index.json'
 
 // example of using styled components ( writing CSS-in-JS )
@@ -14,7 +15,8 @@ const IndexPage = () => (
     <Landing content={index.landing}></Landing>
     <About content={index.about}></About>
     <Services content={index.services}></Services>
-    <p style={{textAlign : 'center'}}>site building progress : <span style={{color :'var(--red)'}}>22%</span> </p>
+    <Academics content={index.academics}></Academics>
+    <p style={{textAlign : 'center'}}>site building progress : <span style={{color :'var(--red)'}}>27%</span> </p>
     
  </PageTransition>
 )
