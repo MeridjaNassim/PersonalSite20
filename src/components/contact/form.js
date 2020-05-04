@@ -88,7 +88,6 @@ const Form = (props)=>{
       
      
     }
-    e.preventDefault();
   }
   const handleChange = e => {
     setFields({...fields ,[e.target.name ]: [e.target.value] });

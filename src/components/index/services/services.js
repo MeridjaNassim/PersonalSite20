@@ -25,6 +25,7 @@ const Wrapper = styled.section`
     }
     .services {
         display :flex ;
+        justify-content :center;
         flex-wrap : wrap;
         @media screen and (max-width: 768px) {
           flex-direction : column

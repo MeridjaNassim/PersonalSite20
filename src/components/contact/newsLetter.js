@@ -41,7 +41,6 @@ const NewsLetter = ({content}) => {
           setShowModal({ show: true, msg: ERROR_SEND })
         });
     }
-    e.preventDefault();
   }
   const reset = () => {
     setEmail("")
@@ -62,7 +61,7 @@ const NewsLetter = ({content}) => {
       ) : null}
       <h1 className="title">{content.header}</h1>
       <p className="info">{content.text}</p>
-      <form name="newsletter" data-netlify={true} onSubmit={handleSubmit}>
+      <form  name="newsletter" data-netlify={true} onSubmit={handleSubmit}>
         <input
           name="email"
           placeholder="Email"

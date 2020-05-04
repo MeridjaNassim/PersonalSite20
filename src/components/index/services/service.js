@@ -9,6 +9,7 @@ export default function service({ content }) {
     <ConsumerContext>
       {({ data }) => {
         return <Card theme={data.theme}>
+            <img src={require(`../../../images/icons/${content.image}`)} alt={content.alt}/>
             <h2>{content.serviceTitle}</h2>
             <p>{content.serviceContent}</p>
             <Button onClick={e=> {
@@ -28,17 +29,25 @@ const Card = styled.div`
   max-width : 33%;
   transition : 0.5s ease;
   border-radius: 20px;
+  position :relative;
   text-align : center;
+  img {
+    position : absolute ; 
+    margin : 0;
+    width:10%;
+    top : 13%;
+    left : 5%;
+  }
   p{
       min-height : 50%;
   }
   ${neumorphism}
     h2 {
         font-weight : 400;
-        color : var(--green)
+        color : var(--grey)
     }
     button {
-        color : var(--green) !important;
+        color : var(--grey) !important;
     }
   @media screen and (max-width: 768px) {
     width : 90vw;
