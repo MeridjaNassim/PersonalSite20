@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import Modal from "../common/modal/Modal"
+
+import {sendNewsLetterEmail} from '../../utils/email'
 import {encode} from '../../utils/encoding'
 const INVALID_EMAIL = "Please put a valid email"
 const REGISTERING = "Registering..."
@@ -27,26 +29,45 @@ const NewsLetter = ({content}) => {
     } else {
       /// async request to endpoint
       setShowModal({ show: true, msg: REGISTERING })
-      fetch("/", {
-        method: "post",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": form.getAttribute('name'), ...{email : email} })
-      })
-        .then((res) => {
-          setError({ isError: false })
+      subscribeToNewsLetter()
+        .then(res => {
+                setError({ isError: false })
           setShowModal({ show: true, msg: THANKS })
           setTimeout(() => reset(), 5000)
         })
-        .catch(error => {
+        .catch(err => {
           setError({ isError: true })
           setShowModal({ show: true, msg: ERROR_SEND })
-        });
+        })
+      // fetch("/", {
+      //   method: "post",
+      //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      //   body: encode({ "form-name": form.getAttribute('name'), ...{email : email} })
+      // })
+      //   .then((res) => {
+      //     setError({ isError: false })
+      //     setShowModal({ show: true, msg: THANKS })
+      //     setTimeout(() => reset(), 5000)
+      //   })
+      //   .catch(error => {
+      //     setError({ isError: true })
+      //     setShowModal({ show: true, msg: ERROR_SEND })
+      //   });
     }
   }
   const reset = () => {
     setEmail("")
     setError({ isError: true, msg: INVALID_EMAIL })
     setShowModal({show: false , msg: ''})
+  }
+  const subscribeToNewsLetter =()=>{
+    let templateParams = {
+      from_name: email,
+      to_name: "Abdellah Nassim Meridja",
+      subject: "Newslettter Subscription from personal site",
+      message_html: `Email ${email} just subscribed to the newsletter`
+    };
+    return sendNewsLetterEmail(templateParams)
   }
   return (
     <StyledDiv>

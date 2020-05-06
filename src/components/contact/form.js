@@ -2,7 +2,7 @@ import React,{useState} from "react"
 import styled from "styled-components"
 import Modal from "../common/modal/Modal";
 import {encode} from '../../utils/encoding'
-
+import {sendContactEmail} from '../../utils/email'
 const Form = (props)=>{
 
   const [fields , setFields] = useState({
@@ -70,25 +70,46 @@ const Form = (props)=>{
       setSubmited(false)
       setShowModal(true)
       setModalMsg("Sending your email...")
-      fetch("/", {
-        method: "post",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": form.getAttribute('name'), ...fields })
-      })
-        .then((res) => {
+      sendEmail()
+        .then(res => {
           setSubmited(true)
-          setShowModal(true)
-          setModalMsg("Thank you for submiting , we will reach out to you ")
-        })
-        .catch(error => {
+              setShowModal(true)
+              setModalMsg("Thank you for submiting , we will reach out to you ")
+        }).catch(err => {
           setSubmited(false)
           setShowModal(true)
           setModalMsg("Error occured , we could'nt send your message ")
-        });
+        })
+      // fetch("/", {
+      //   method: "post",
+      //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      //   body: encode({ "form-name": form.getAttribute('name'), ...fields })
+      // })
+      //   .then((res) => {
+      //     setSubmited(true)
+      //     setShowModal(true)
+      //     setModalMsg("Thank you for submiting , we will reach out to you ")
+      //   })
+      //   .catch(error => {
+      //     setSubmited(false)
+      //     setShowModal(true)
+      //     setModalMsg("Error occured , we could'nt send your message ")
+      //   });
 
       
      
     }
+  }
+
+  const sendEmail =()=>{
+    
+    let templateParams = {
+      from_name: `${fields.name +" " + fields.email}`,
+      to_name: "Abdellah Meridja",
+      subject: "New Personal Website Contact",
+      message_html: fields.message
+    };
+    return sendContactEmail(templateParams)
   }
   const handleChange = e => {
     setFields({...fields ,[e.target.name ]: [e.target.value] });
