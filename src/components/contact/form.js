@@ -121,11 +121,9 @@ const Form = (props)=>{
       <StyledForm
         className="contact-form"
         name="contact-me"
-        data-netlify={true}
         method ="POST"
         onSubmit={handleSubmit}
       >
-         <input type="hidden" name="contact-me" value="Contact Me" />
         <div className="input-row ">
           <input
             className={`${errors.name ? "error-border" : ""}`}

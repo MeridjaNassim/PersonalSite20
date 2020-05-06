@@ -2,12 +2,24 @@ import styled from "styled-components"
 import { neumorphism } from "./effects"
 import React from "react"
 
-const Card = ({ theme, title, icon, alt, text, style, children }) => {
+const Card = ({
+  theme,
+  title,
+  icon,
+  alt,
+  text,
+  style,
+  children,
+  iconStyle,
+  headerStyle,
+  textStyle,
+  className,
+}) => {
   return (
-    <StyledCard style={style} theme={theme}>
-      <img src={icon} alt={alt} />
-      <h2>{title}</h2>
-      <p>{text}</p>
+    <StyledCard className={className} style={style} theme={theme}>
+      <img src={icon} alt={alt} className="icon-card" style={iconStyle} />
+      <h2 style={headerStyle}>{title}</h2>
+      <p style={textStyle}>{text}</p>
       {children}
     </StyledCard>
   )
@@ -23,7 +35,7 @@ const StyledCard = styled.div`
   border-radius: 20px;
   position: relative;
   text-align: center;
-  img {
+  .icon-card {
     position: absolute;
     margin: 0;
     width: 10%;
@@ -31,15 +43,14 @@ const StyledCard = styled.div`
     left: 5%;
   }
   p {
-    min-height: 50%;
-   
+    min-height: 30%;
   }
   ${neumorphism}
   h2 {
     font-weight: 400;
-    width : 70%;
-    min-height : 20%;
-    margin : 1rem auto ;
+    width: 70%;
+    min-height: 20%;
+    margin: 1rem auto;
     color: var(--grey);
   }
   button {

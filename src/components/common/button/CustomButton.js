@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import ConsumerContext from "../../../context/Context"
 import React from "react"
 import {neumorphism} from '../effects'
@@ -16,6 +16,17 @@ export default ({ children, onClick }) => {
     </ConsumerContext>
   )
 }
+const LinkButton = ({href ,children}) => {
+  return  <ConsumerContext>
+  {({ data }) => {
+    return (
+      <CustomButton theme={data.theme}  as={Link} href={href} rel="noopener noreferrer" target="_blank">
+        {children}
+      </CustomButton>
+    )
+  }}
+</ConsumerContext>
+}
 const CustomButton = styled.button`
   padding: 15px;
   color: inherit;
@@ -26,3 +37,7 @@ const CustomButton = styled.button`
   border: none;
   ${neumorphism}
 `
+const Link = styled.a`
+  text-decoration : none;
+`
+export {LinkButton}

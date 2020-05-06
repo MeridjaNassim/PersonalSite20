@@ -82,8 +82,7 @@ const NewsLetter = ({content}) => {
       ) : null}
       <h1 className="title">{content.header}</h1>
       <p className="info">{content.text}</p>
-      <form  name="newsletter" data-netlify={true} onSubmit={handleSubmit}  method ="POST">
-      <input type="hidden" name="newsletter" value="Contact Me" />
+      <form  name="newsletter"  onSubmit={handleSubmit}  method ="POST">
         <input
           name="email"
           placeholder="Email"

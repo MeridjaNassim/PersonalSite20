@@ -88,6 +88,25 @@
                 "text" :"Great background in statistics and probability theory , estimation and problem modeling , Hypothesis testing and statistical learning , had top grades in this subject"
             }
         ] 
+    } ,
+    "clubs" : {
+        "header" :"Clubs & Affliations",
+        "items" :[
+            {
+                "image" :"gdg.png",
+                "alt" :"gdg",
+                "title" :"Google Developers Group Algiers",
+                "text" :"Leading the development departement of GDG & WTM algiers and managing activities at the club and collaborating with teams working on different projects",
+                "url": "https://distracted-davinci-c6a17d.netlify.app/"
+            },
+            {
+                "image" :"cse.png",
+                "alt" :"cse",
+                "title" :"Club scientifique de l'ESI CSE",
+                "text" :"Developer departement member, worked with teams on different projects for the benefit of the club , Organized many events with the club like MLH local Hack Day 2018",
+                "url" : "https://cse.club/"
+            }
+        ]
     }
    
 }
