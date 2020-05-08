@@ -11,6 +11,7 @@ export default function clubs({content}) {
     })
     return (
         <CardedRow
+            id="clubs"
             header={content.header}
             text={content.text}
             items={items}
