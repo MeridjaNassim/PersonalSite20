@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect  } from "react"
 import Header from "./header"
 import Footer from "./footer"
 import "../../styles/layout.css"
@@ -13,8 +13,10 @@ import "../../styles/main.css"
 import styled from "styled-components"
 import PageLoader from "../common/loader"
 import ConsumerContext from "../../context/Context"
-const Main = styled.main`
-`
+
+import PropTypes from "prop-types"
+
+
 
 const Layout = ({ children }) => {
   const [theme, setTheme] = useState("loading")
@@ -25,7 +27,11 @@ const Layout = ({ children }) => {
     setTheme(storedTheme);
   }, [])
   return theme === "loading" ? (
-    <PageLoader></PageLoader>
+    <div>
+       <Header />
+      <PageLoader loading></PageLoader>
+    </div>
+    
   ) : (
     <ConsumerContext>
       {({ data,set }) => {
@@ -72,6 +78,11 @@ const Layout = ({ children }) => {
     </ConsumerContext>
   )
 }
+Layout.propTypes = {
+  children : PropTypes.arrayOf(PropTypes.any)
+}
+const Main = styled.main`
+`
 
 const ThemeSwitch = styled.button`
   position: fixed;

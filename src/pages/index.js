@@ -8,6 +8,7 @@ import Academics from "../components/index/Academics/Academics"
 import Clubs from '../components/index/Affliations/clubs';
 import index from '../content/index.json'
 
+
 // example of using styled components ( writing CSS-in-JS )
 
 const IndexPage = () => (
@@ -18,9 +19,10 @@ const IndexPage = () => (
     <Services content={index.services}></Services>
     <Academics content={index.academics}></Academics>
     <Clubs content={index.clubs}></Clubs>
-    <p style={{textAlign : 'center'}}>site building progress : <span style={{color :'var(--red)'}}>28%</span> </p>
+<p style={{textAlign : 'center'}}>site building progress : <span style={{color :'var(--red)'}}>30%</span> </p>
     
  </PageTransition>
 )
+
 
 export default IndexPage

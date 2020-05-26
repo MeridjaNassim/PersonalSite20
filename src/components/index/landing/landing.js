@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { navigate } from "gatsby"
 import Button from '../../common/button/CustomButton';
-
+import PropTypes from "prop-types"
 export default function Landing({ content}) {
   
   return (
@@ -45,6 +45,10 @@ export default function Landing({ content}) {
       </Canvas>
     </Wrapper>
   )
+}
+
+Landing.propTypes ={
+  content : PropTypes.object.isRequired
 }
 const Wrapper = styled.section`
   width: 70%;
@@ -170,8 +174,6 @@ display : flex ;
 justify-content :center;
 align-items :center;
 border-radius : 50%;
-max-width : 300px;
-max-height : 300px;
 max-width : 400px;
 max-height : 400px;
 border : 20px solid rgba(0,0,0,0.2);

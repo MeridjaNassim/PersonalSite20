@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import ConsumerContext from "../../../context/Context"
 import React from "react"
-import {neumorphism,neumorphismPressed } from '../effects'
+import {neumorphism,neumorphismPressed ,neumorphismHover} from '../effects'
 // button
 export default ({ children, onClick }) => {
   return (
@@ -33,11 +33,14 @@ const CustomButton = styled.button`
   outline: none;
   cursor: pointer;
   font-family: var(--font-header);
-  transition: 0.5s ease;
+  transition: 1s ease;
   border: none;
   ${neumorphism}
-  &:focus {
+  &:focus  {
     ${neumorphismPressed}
+  }
+  &:hover {
+    ${neumorphismHover}
   }
 `
 const Link = styled.a`

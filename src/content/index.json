@@ -29,6 +29,9 @@
     },
     "services" : {
         "header" : "I've worked on" ,
+        "image" :"coding.svg",
+        "alt" :"coding",
+        
         "items" :[
             {
                 "serviceTitle" : "Web Developement",
@@ -54,7 +57,11 @@
         ]
     },
     "academics" : {
+
         "header" : "Academics" ,
+        "image" :"graduation.svg",
+        "alt" :"academics",
+        
         "description" :"Iam currently a 3rd year student at <a href=\"https://www.esi.dz\" target=\"_blank\" rel=\"noopener noreferrer\">Ecole nationale supérieure d'informatique Algiers , ESI </a> , here are some of our curriculum subjects ",
         "items" : [
             {
@@ -91,13 +98,15 @@
     } ,
     "clubs" : {
         "header" :"Clubs & Affliations",
+        "image" :"clubs.svg",
+        "alt" :"clubs",
         "items" :[
             {
                 "image" :"gdg.png",
                 "alt" :"gdg",
                 "title" :"Google Developers Group Algiers",
                 "text" :"Leading the development departement of GDG & WTM algiers and managing activities at the club and collaborating with teams working on different projects",
-                "url": "https://distracted-davinci-c6a17d.netlify.app/"
+                "url": "https://gdg-algiers20.netlify.app/"
             },
             {
                 "image" :"cse.png",

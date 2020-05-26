@@ -31,6 +31,11 @@ const Footer = ({style}) => (
             icon={require("../../images/icons/github.svg")}
             text="github"
           ></ExternalLink>
+           <ExternalLink
+            url="https://www.linkedin.com/in/abdellah-meridja-308a16147/"
+            icon={require("../../images/icons/linkedin.svg")}
+            text="linkedin"
+          ></ExternalLink>
         </div>
       </div>
     </div>
@@ -174,21 +179,20 @@ const StyledButton = styled.button`
  
   border-radius: 50px;
   border-radius: 50px;
-background: #212121;
-box-shadow:  20px 20px 60px #111111, 
-             -20px -20px 60px #313131;
-  color: white;
+background: #fafafa;
+
+  color: var(--grey-dark);
   border: none;
   cursor: pointer;
   outline: none;
   &:hover {
-    animation: scaler 1s ease alternate 2;
+    animation: scaler 0.5s ease alternate 2;
     @keyframes scaler {
       from {
-        transform: scale(1);
+        transform: scaleX(1);
       }
       to {
-        transform: scale(1.2);
+        transform: scaleX(1.1);
       }
     }
   }

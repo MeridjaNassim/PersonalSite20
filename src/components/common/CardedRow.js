@@ -2,21 +2,22 @@ import React from "react"
 import styled from "styled-components"
 import ConsumerContext from "../../context/Context"
 import Card from "./Card"
-export default function CardedRow({ id ,header, text, items }) {
+export default function CardedRow({ id,header, text, items }) {
   return (
-    <Wrapper id={id}>
+    <Wrapper >
       <h1>{header}</h1>
       <p dangerouslySetInnerHTML={{ __html: text }}></p>
       <ConsumerContext>
         {({ data }) => (
           <Items>
-            {items.map(item => (
+            {items.map((item,index) => (
               <Card
                 theme={data.theme}
                 icon={require(`../../images/icons/${item.image}`)}
                 alt={item.alt}
                 title={item.title}
                 text={item.text}
+                key={`${id}-${index}`}
               >
                 {item.children}
               </Card>
@@ -27,8 +28,7 @@ export default function CardedRow({ id ,header, text, items }) {
     </Wrapper>
   )
 }
-const Wrapper = styled.section`
-  margin-top: 8%;
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

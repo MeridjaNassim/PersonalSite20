@@ -14,12 +14,13 @@ const Card = ({
   headerStyle,
   textStyle,
   className,
+  key
 }) => {
   return (
-    <StyledCard className={className} style={style} theme={theme}>
-      <img src={icon} alt={alt} className="icon-card" style={iconStyle} />
-      <h2 style={headerStyle}>{title}</h2>
-      <p style={textStyle}>{text}</p>
+    <StyledCard className={className} style={style} theme={theme} key={key}>
+      <img className="icon-card" src={icon} alt={alt}  style={iconStyle} />
+      <h2 className="title" style={headerStyle}>{title}</h2>
+      <p className="desc" style={textStyle}>{text}</p>
       {children}
     </StyledCard>
   )
@@ -32,7 +33,7 @@ const StyledCard = styled.div`
   min-width: 25%;
   max-width: 33%;
   transition: 0.5s ease;
-  border-radius: 20px;
+ 
   position: relative;
   text-align: center;
   .icon-card {
@@ -42,10 +43,12 @@ const StyledCard = styled.div`
     top: 13%;
     left: 5%;
   }
-  p {
+  .desc {
     min-height: 30%;
   }
   ${neumorphism}
+  border-radius: 2px;
+  
   h2 {
     font-weight: 400;
     width: 70%;
@@ -53,14 +56,14 @@ const StyledCard = styled.div`
     margin: 1rem auto;
     color: var(--grey);
   }
-  button {
-    color: var(--grey) !important;
-  }
   @media screen and (max-width: 768px) {
     width: 90vw;
     margin: 2% auto;
     max-width: 90%;
     padding: 32px;
+    .desc {
+      padding : 0px;
+    }
   }
 `
 export default Card
