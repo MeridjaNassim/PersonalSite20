@@ -5,7 +5,7 @@ const sendContactEmail = (templateParams)=> {
            provider : "gmail",
         templateId : "template_ImftiFgW",
         templateParams : templateParams,
-        userID : "user_X9yvYwTOP0XDf0K1EyFwE"
+        userID : process.env.GATSBY_EMAIL_JS_USER_ID
         }
       );
 }
@@ -16,7 +16,7 @@ const sendNewsLetterEmail = (templateParams)=>{
            provider: "gmail",
         templateId : "subscribtion_to_newsletter_template",
         templateParams : templateParams,
-        userID : "user_X9yvYwTOP0XDf0K1EyFwE"
+        userID :process.env.GATSBY_EMAIL_JS_USER_ID
         }
       );
 }

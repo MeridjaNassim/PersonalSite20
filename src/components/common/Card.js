@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { neumorphism } from "./effects"
+import { lightShadow } from "./effects"
 import React from "react"
 
 const Card = ({
@@ -46,7 +46,7 @@ const StyledCard = styled.div`
   .desc {
     min-height: 30%;
   }
-  ${neumorphism}
+  ${lightShadow}
   border-radius: 2px;
   
   h2 {

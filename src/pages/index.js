@@ -19,7 +19,7 @@ const IndexPage = () => (
     <Services content={index.services}></Services>
     <Academics content={index.academics}></Academics>
     <Clubs content={index.clubs}></Clubs>
-<p style={{textAlign : 'center'}}>site building progress : <span style={{color :'var(--red)'}}>30%</span> </p>
+
     
  </PageTransition>
 )

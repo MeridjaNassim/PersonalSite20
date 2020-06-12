@@ -156,14 +156,15 @@ justify-content : center;
 align-items : center;
 h3 {
   margin : 0;
-  color : #fafafa;
+  color : var(--grey-dark);
   font-family : var(--font-header);
   font-weight : 300
 }
 padding : 10px ;
 border-radius : 10px;
 border-top-left-radius : 0px;
-background : var(--green);
+
+background : var(--green-light);
 @media screen and (max-width: 1024px) {
     margin : auto;
   }

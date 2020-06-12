@@ -65,7 +65,7 @@ const TabButton = styled.div`
 
 display :flex; 
 flex-direction : column;
-justify-content : center;
+justify-content : flex-end;
 align-items :center;
 img {
   z-index : 123;

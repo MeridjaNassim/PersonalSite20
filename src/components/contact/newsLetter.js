@@ -136,8 +136,9 @@ const StyledDiv = styled.div`
     input[type="email"] {
       height: 8vw;
       width: 100%;
-      outline-color: none;
+      outline: none;
       border: solid 1px var(--green);
+
       color: var(--green);
       padding-left: 4vw;
       border-radius: 1.6vw;
@@ -158,8 +159,8 @@ const StyledButton = styled.button`
   font-family: var(--font-header);
   height: 3vw;
   width: 8vw;
-  color: #ffff;
-  background-color: var(--green);
+  color: var(--grey-dark);
+  background-color: var(--green-light);
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;

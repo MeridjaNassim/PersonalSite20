@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import { ExternalLink } from "../common/utils"
 import { navigate } from "gatsby"
+import Button from '../common/button/CustomButton'
 import { emojis } from "../common/images"
 const Footer = ({style}) => (
   <StyledFooter style={style}>
@@ -52,14 +53,14 @@ const Footer = ({style}) => (
     </div>
     <div className="row3">
       <h2>Intrested in hiring me ?</h2>
-      <StyledButton
+      <Button
         onClick={e => {
           e.preventDefault()
           navigate("/contact")
         }}
       >
         GET IN TOUCH
-      </StyledButton>
+      </Button>
     </div>
   </StyledFooter>
 )

@@ -291,11 +291,11 @@ const StyledButton = styled.button`
   z-index :1;
   height: 3vw;
   border: none;
-  background-color: var(--green);
+  background-color: var(--green-light);
   font-family: var(--font-header);
   font-size: 20px;
   text-align: center;
-  color: #ffffff;
+  color: var(--grey-dark);
   cursor: pointer;
   margin-top: 1vw;
   border-radius: 3vw;
