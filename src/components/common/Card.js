@@ -30,8 +30,8 @@ const StyledCard = styled.div`
   flex: 1;
   margin: 2%;
   padding: 64px;
-  min-width: 25%;
-  max-width: 33%;
+  min-width: 25vw;
+  max-width: 33vw;
   transition: 0.5s ease;
  
   position: relative;
@@ -56,6 +56,7 @@ const StyledCard = styled.div`
     margin: 1rem auto;
     color: var(--grey);
   }
+  
   @media screen and (max-width: 768px) {
     width: 90vw;
     margin: 2% auto;

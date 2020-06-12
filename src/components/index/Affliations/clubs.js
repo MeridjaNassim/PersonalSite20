@@ -12,7 +12,8 @@ export default function clubs({ content }) {
         height : 20,
         margin:"0px",
         marginLeft : "10px",
-        padding : 0
+        padding : 0,
+        verticalAlign : "middle"
       }}src={require('../../../images/icons/external-link-symbol.svg')}></img></LinkButton>,
     }
   })
@@ -65,7 +66,7 @@ const Clubs = styled.div`
 const Club = styled.div`
   display : flex;
   justify-content : flex-start;
-  width : 90%;
+  width : 60%;
   margin: 0 auto;
   margin-bottom : 10%;
   align-items : center;
@@ -86,8 +87,8 @@ const Club = styled.div`
   
   img {
     padding : 50px;
-    max-width : 200px;
-    max-height : 200px;
+    max-width : 300px;
+    max-height : 300px;
   }
   .club-content {
       display :flex ;
@@ -103,8 +104,12 @@ const Club = styled.div`
   }
   @media screen and (max-width: 1000px) {
     justify-content : center;
-   
-  width : 100;
+   img {
+     padding : 20px;
+     max-width : 200px;
+    max-height : 200px;
+   }
+  width : 100%;
   align-items : center;
   text-align :center;
   &.right {
@@ -125,9 +130,9 @@ const Club = styled.div`
 const Image = styled.img`
   position: absolute;
   left: 62%;
-  top: -20%;
+  top: 0%;
   width: 400px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     position: relative;
     top: 20px;
     left: 50%;
