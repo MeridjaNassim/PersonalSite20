@@ -54,6 +54,9 @@ const Footer = ({style}) => (
     <div className="row3">
       <h2>Intrested in hiring me ?</h2>
       <Button
+        style={{
+          color : "#fafafa"
+        }}
         onClick={e => {
           e.preventDefault()
           navigate("/contact")
@@ -166,34 +169,6 @@ const StyledFooter = styled.footer`
           margin: 0;
           margin-left: 20px;
         }
-      }
-    }
-  }
-`
-const StyledButton = styled.button`
-  padding: 10px 30px;
-  border-radius: 50px;
-  font-family: inherit;
-  font-weight: bold;
-
-  background: #0d9d58;
- 
-  border-radius: 50px;
-  border-radius: 50px;
-background: #fafafa;
-
-  color: var(--grey-dark);
-  border: none;
-  cursor: pointer;
-  outline: none;
-  &:hover {
-    animation: scaler 0.5s ease alternate 2;
-    @keyframes scaler {
-      from {
-        transform: scaleX(1);
-      }
-      to {
-        transform: scaleX(1.1);
       }
     }
   }

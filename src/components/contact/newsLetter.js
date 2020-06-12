@@ -113,7 +113,7 @@ const StyledDiv = styled.div`
     height: 3vw;
     width: 26vw;
     background-color: inherit;
-    outline-color: transparent;
+   outline : none;
     border: solid 1px var(--green);
     color: var(--green);
     padding-left: 1vw;
@@ -138,7 +138,7 @@ const StyledDiv = styled.div`
       width: 100%;
       outline: none;
       border: solid 1px var(--green);
-
+      
       color: var(--green);
       padding-left: 4vw;
       border-radius: 1.6vw;
@@ -166,6 +166,7 @@ const StyledButton = styled.button`
   border-bottom-right-radius: 5px;
   cursor: pointer;
   outline: none;
+  
   vertical-align: middle;
   @media (max-width: 768px) {
     height: 8vw;

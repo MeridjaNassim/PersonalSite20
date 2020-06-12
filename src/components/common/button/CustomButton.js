@@ -3,12 +3,12 @@ import ConsumerContext from "../../../context/Context"
 import React from "react"
 import {lightShadow} from '../effects'
 // button
-export default ({ children, onClick }) => {
+export default ({ children, onClick , style }) => {
   return (
     <ConsumerContext>
       {({ data }) => {
         return (
-          <CustomButton theme={data.theme} onClick={onClick}>
+          <CustomButton style={style} theme={data.theme} onClick={onClick}>
             {children}
           </CustomButton>
         )
@@ -36,8 +36,8 @@ const CustomButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: var(--grey-dark);
-  background-color: var(--green-light);
+  color: inherit;
+  background-color: inherit;
   border: none;
   border-radius: 45px;
   ${lightShadow}
