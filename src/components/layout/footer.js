@@ -1,10 +1,11 @@
 ///Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 import React from "react"
 import styled from "styled-components"
-import { ExternalLink } from "../common/utils"
+import {SocialMediaLinks } from './SocialMedia'
 import { navigate } from "gatsby"
 import Button from '../common/button/CustomButton'
 import { emojis } from "../common/images"
+
 const Footer = ({style}) => (
   <StyledFooter style={style}>
     <div className="row1">
@@ -12,31 +13,7 @@ const Footer = ({style}) => (
       <div className="social-media">
         <p>Follow Me</p>
         <div className="sm">
-          <ExternalLink
-            url="https://www.instagram.com/shia_lab/"
-            icon={require("../../images/icons/instagram.svg")}
-            text="instagram"
-          ></ExternalLink>
-          <ExternalLink
-            url="https://twitter.com/AbdMeri"
-            icon={require("../../images/icons/twitter.svg")}
-            text="twitter"
-          ></ExternalLink>
-          <ExternalLink
-            url="https://www.facebook.com/nassim.top2"
-            icon={require("../../images/icons/facebook.svg")}
-            text="facebook"
-          ></ExternalLink>
-            <ExternalLink
-            url="https://github.com/MeridjaNassim"
-            icon={require("../../images/icons/github.svg")}
-            text="github"
-          ></ExternalLink>
-           <ExternalLink
-            url="https://www.linkedin.com/in/abdellah-meridja-308a16147/"
-            icon={require("../../images/icons/linkedin.svg")}
-            text="linkedin"
-          ></ExternalLink>
+         {SocialMediaLinks}
         </div>
       </div>
     </div>

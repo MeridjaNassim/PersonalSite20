@@ -3,6 +3,9 @@ import styled from "styled-components"
 import { navigate } from "gatsby"
 import Button from '../../common/button/CustomButton';
 import PropTypes from "prop-types"
+
+
+
 export default function Landing({ content}) {
   
   return (

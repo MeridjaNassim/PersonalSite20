@@ -15,6 +15,7 @@ import PageLoader from "../common/loader"
 import ConsumerContext from "../../context/Context"
 
 import PropTypes from "prop-types"
+import SocialMedia from "./SocialMedia"
 
 
 
@@ -43,6 +44,7 @@ const Layout = ({ children }) => {
         <div className={`${theme}-theme`}>
           <Header />
           <div style={{ backgroundColor: "inherit" }}>
+            <SocialMedia></SocialMedia>
             <ThemeSwitch
               style={data.isMobile ? { top : "1vh" } : null}
               onClick={e => {
@@ -95,7 +97,7 @@ const ThemeSwitch = styled.button`
   transform: scale(0);
   outline: none;
   background-color: transparent;
-  left: 10px;
+  right: 10px;
   animation: grow 1s ease forwards 1;
   opacity: 0.5;
   transition: opacity 1s ease;
