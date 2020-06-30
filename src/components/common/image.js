@@ -26,11 +26,11 @@ import Img from "gatsby-image"
 // `)
 const FluidImage = ({data}) => {
   
-
+  console.log(data)
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
-const FixedImage = ({data})=> {
-  return <Img fluid={data.placeholderImage.childImageSharp.fixed} />
+const FixedImage = ({data,style})=> {
+  return <Img style={style} fluid={data.placeholderImage.childImageSharp.fixed} />
 }
 export  {FluidImage , FixedImage}
