@@ -9,7 +9,7 @@
         },
         "buttonRight" : {
             "text" : "SEE PROJECTS",
-            "link" :"/projects"
+            "link" :"/portfolio"
         },
         "profileImg" : {
             "webpsource" : "sq_me2.webp",

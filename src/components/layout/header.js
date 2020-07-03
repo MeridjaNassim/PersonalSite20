@@ -12,12 +12,12 @@ const links = [
     routeName : 'ME',
   } ,   {
     icon : navIcons.blogroute ,
-    route : '/blogs',
-    routeName : 'BLOGS',
+    route : '/blog',
+    routeName : 'BLOG',
   } ,   {
     icon : navIcons.projectroute ,
-    route : '/projects',
-    routeName : 'PROJECTS',
+    route : '/portfolio',
+    routeName : 'PORTFOLIO',
   } ,  {
     icon : navIcons.contactroute ,
     route : '/contact',

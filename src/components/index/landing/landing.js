@@ -51,8 +51,12 @@ export default function Landing({ content }) {
       <Canvas>
         <Border>
         <FixedImage data={data} style={{
-        width : 300,
-        height : 300,
+        minWidth : 250,
+        minHeight : 250,
+        width : "28vw",
+        height :"28vw",
+        maxWidth : 300,
+        maxHeight : 300,
         borderRadius : "50%",
         border: "20px solid rgba(0, 0, 0, 0.2)",
         margin :0

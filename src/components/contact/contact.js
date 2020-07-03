@@ -7,7 +7,7 @@ const Contact = ({content}) => (
       <div className="img-container">
         <img
           className="img2 animated-wigle"
-          src={require("../../images/icons/ic-email-48-px.svg")}
+          src={require("../../images/icons/email.svg")}
           alt="email"
         ></img>
       </div>
@@ -18,7 +18,7 @@ const Contact = ({content}) => (
     </div>
     <div className="row2">
       <div className="img-container">
-        <img alt="location" className="img2 animated-wigle" src={require("../../images/icons/gps.svg")}></img>
+        <img alt="location" className="img2 animated-wigle" src={require("../../images/icons/pin.svg")}></img>
       </div>
       <div className="info-container">
         <p className="title">{content.adress.text}</p>
