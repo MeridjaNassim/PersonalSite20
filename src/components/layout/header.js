@@ -121,8 +121,8 @@ const StyledHeader = styled.header`
     }
   }
   transform : translateY(-10vh);
-  ${dropShadow} 
   @media screen and (max-width: 768px) {
+    box-shadow : 1px 1px 1px rgba(0,0,0,0.5);
     bottom: 0px;
     transform : translateY(0vh);
   }

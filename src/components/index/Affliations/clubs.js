@@ -72,6 +72,9 @@ const Club = styled.div`
   align-items : center;
   a {
     width : fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &.right {
     text-align : right;

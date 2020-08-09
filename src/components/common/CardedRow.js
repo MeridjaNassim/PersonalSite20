@@ -56,7 +56,12 @@ const Items = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  flex-basis: 33%;
+  @media screen and (max-width : 1200px) {
+    flex-basis : 50%;
+  }
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }
+  
 `

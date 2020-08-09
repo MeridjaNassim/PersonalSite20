@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState, useEffect  } from "react"
+import React, { useState, useLayoutEffect  } from "react"
 import Header from "./header"
 import Footer from "./footer"
 import "../../styles/layout.css"
@@ -20,20 +20,14 @@ import SocialMedia from "./SocialMedia"
 
 
 const Layout = ({ children }) => {
-  const [theme, setTheme] = useState("loading")
+  const [theme, setTheme] = useState("light")
   const [animate, setAnimate] = useState(false)
   const [globalThemeLoaded ,setGlobalThemeLoaded] = useState(false)
-  useEffect(() => {
+  useLayoutEffect(() => {
     let storedTheme = localStorage.getItem("theme") || "dark"
     setTheme(storedTheme);
   }, [])
-  return theme === "loading" ? (
-    <div>
-       <Header />
-      <PageLoader loading></PageLoader>
-    </div>
-    
-  ) : (
+  return (
     <ConsumerContext>
       {({ data,set }) => {
         if(!globalThemeLoaded) {

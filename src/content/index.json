@@ -106,7 +106,7 @@
                 "alt" :"gdg",
                 "title" :"GDG Algiers",
                 "text" :"Leading the development departement of GDG & WTM algiers and managing activities at the club and collaborating with teams working on different projects",
-                "url": "https://gdg-algiers20.netlify.app/"
+                "url": "https://gdgalgiers.com/"
             },
             {
                 "image" :"cse.png",
@@ -116,6 +116,26 @@
                 "url" : "https://cse.club/"
             }
         ]
-    }
+    },
+    "featured_projects" : [
+        {
+            "id" :"p1",
+            "title" :"project 1",
+            "thumbnail" :"anapred.jpg",
+            "link" :""
+        },
+        {
+            "id" :"p2",
+            "title" :"project 2",
+            "thumbnail" :"anapred.jpg",
+            "link" :""
+        },
+        {
+            "id" :"p3",
+            "title" :"project 3",
+            "thumbnail" :"anapred.jpg",
+            "link" :""
+        }
+    ]
    
 }
