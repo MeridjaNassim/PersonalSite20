@@ -9,7 +9,7 @@ const About = ({content}) => {
         alt={content.illustration.alt}
       ></img>
       <Content>
-        <h1>{content.header}</h1>
+        <Title>About Nassim</Title>
         <p dangerouslySetInnerHTML={{__html: content.text}}>
 
         </p>
@@ -21,7 +21,10 @@ const About = ({content}) => {
     </Wrapper>
   )
 }
+const Title = styled.h1`
+  font-size: 4rem;
 
+`
 const Wrapper = styled.section`
   width: 100%;
   display: flex;
@@ -52,8 +55,8 @@ const Content = styled.div`
       
   }
   @media screen and (max-width: 1024px) {
-    width: 90%;
-    text-align :center;
+    width: 100%;
+    padding : 0 1rem;
   }
 `
 const DownloadCV = styled.a`

@@ -27,13 +27,13 @@ const Card = ({
 }
 
 const StyledCard = styled.div`
-  flex: 1;
   margin: 2%;
   padding: 64px;
-  min-width: 25vw;
-  max-width: 33vw;
+  min-width : 25%;
   transition: 0.5s ease;
- 
+  display : flex;
+  justify-content : center;
+  align-items : center;
   position: relative;
   text-align: center;
   .icon-card {
@@ -42,9 +42,6 @@ const StyledCard = styled.div`
     width: 10%;
     top: 13%;
     left: 5%;
-  }
-  .desc {
-    min-height: 30%;
   }
   ${lightShadow}
   border-radius: 2px;

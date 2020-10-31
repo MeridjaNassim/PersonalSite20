@@ -10,9 +10,8 @@
   --grey: #676c72;
   --grey-dark: #212121;
   --white : #fafafa;
-  --font-header: "Montserrat", sans-serif;
-  --font: Roboto;
-
+  --font-header: "Poppins", sans-serif;
+  --font: "Poppins", Roboto , sans-serif;
   --sectionPadding: 1rem 4rem;
   --mobileSectionPadding : 20px;
  
@@ -33,7 +32,7 @@
 }
 .light-theme {
   transition: 1s ease;
-  background-color:  white;
+  background-color:  var(--white);
 }
 .flex {
   display: flex;
@@ -68,9 +67,9 @@
 }
 
 p {
-  font-family: Roboto;
+  font-family: "Poppins" ,Roboto, sans-serif;
 }
 
-h1 {
+h1,h2,h3 {
   font-family: var(--font-header);
 }

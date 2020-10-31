@@ -29,7 +29,7 @@ const Footer = ({style}) => (
       </p>
     </div>
     <div className="row3">
-      <h2>Intrested in hiring me ?</h2>
+      <h2>Interested in hiring me ?</h2>
       <Button
         style={{
           color : "#fafafa"

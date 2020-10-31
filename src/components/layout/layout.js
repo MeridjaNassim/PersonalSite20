@@ -20,26 +20,26 @@ import SocialMedia from "./SocialMedia"
 
 
 const Layout = ({ children }) => {
-  const [theme, setTheme] = useState("light")
-  const [animate, setAnimate] = useState(false)
-  const [globalThemeLoaded ,setGlobalThemeLoaded] = useState(false)
-  useLayoutEffect(() => {
-    let storedTheme = localStorage.getItem("theme") || "dark"
-    setTheme(storedTheme);
-  }, [])
-  return (
+  // const [theme, setTheme] = useState("light")
+  // const [animate, setAnimate] = useState(false)
+  // const [globalThemeLoaded ,setGlobalThemeLoaded] = useState(false)
+  // useLayoutEffect(() => {
+  //   let storedTheme = localStorage.getItem("theme") || "dark"
+  //   setTheme(storedTheme);
+  // }, [])
+   return (
     <ConsumerContext>
       {({ data,set }) => {
-        if(!globalThemeLoaded) {
-          set({theme : theme})
-          setGlobalThemeLoaded(true)
-        } 
+        // if(!globalThemeLoaded) {
+        //   set({theme : theme})
+        //   setGlobalThemeLoaded(true)
+        // } 
         return (
-        <div className={`${theme}-theme`}>
+        <div className={`light-theme`}>
           <Header />
           <div style={{ backgroundColor: "inherit" }}>
             <SocialMedia></SocialMedia>
-            <ThemeSwitch
+            {/* <ThemeSwitch
               style={data.isMobile ? { top : "1vh" } : null}
               onClick={e => {
                 let newdata = theme === "light" ? "dark" : "light"
@@ -63,7 +63,7 @@ const Layout = ({ children }) => {
                   alt="moon"
                 />
               )}
-            </ThemeSwitch>
+            </ThemeSwitch> */}
             <Main style={{ backgroundColor: "inherit", minHeight: "100vh" , paddingTop: data.isMobile ? 0 : "10vh" }}>
               {children}
             </Main>

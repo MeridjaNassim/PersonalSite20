@@ -28,31 +28,130 @@
         "downloadText" :"Download CV"
     },
     "services" : {
-        "header" : "I've worked on" ,
-        "image" :"coding.svg",
-        "alt" :"coding",
-        
         "items" :[
             {
-                "serviceTitle" : "Web Developement",
-                "serviceContent" :"I like building things , bringing my ideas to reality , and web developement is the tool that made it possible for me , thats why am always up-to-date in this topic" ,
-                "route" :"/projects/webdev",
-                "image"  :"webdev.svg",
+                "title" : "Web Developement",
+                "techs" : [
+                    {
+                        "path" : "react.svg",
+                        "alt" : "react"
+                    },
+                    {
+                        "path" : "gatsby.png",
+                        "alt" : "gatsbyjs"
+                    },
+                    {
+                        "path" : "next-js.svg",
+                        "alt" : "nextjs"
+                    },
+                    {
+                        "path" : "nodejs.png",
+                        "alt" : "nodejs"
+                    },
+                    {
+                        "path" : "nest.png",
+                        "alt" : "nestjs"
+                    },
+                    {
+                        "path" : "netlify.svg",
+                        "alt" : "netlfiy"
+                    },
+                    {
+                        "path" : "vercel.png",
+                        "alt" : "vercel"
+                    },
+                    {
+                        "path" : "gcp.png",
+                        "alt" : "gcp"
+                    }
+                ],
+                "route" :"/portfolio/webdev",
+                "logo"  :"webdev.svg",
                 "alt" :"webdev"
             },
             {
-                "serviceTitle" : "Mobile Developement",
-                "serviceContent" :"Mobiles are a an essential part of our lives ,which is why i aim to make them better with my apps" ,
-                "route" :"/projects/mobiledev",
-                "image"  :"mobiledev.svg",
-                "alt" :"mobiledev"
+                "title" : "Mobile Developement",
+                "techs" : [
+                    {
+                        "path" : "flutter.svg",
+                        "alt" : "flutter"
+                    },
+                    {
+                        "path" : "firebase.png",
+                        "alt" : "firebase"
+                    },
+                    {
+                        "path" : "react.svg",
+                        "alt" : "react native"
+                    },
+                    {
+                        "path" : "android.png",
+                        "alt" : "android"
+                    }
+                ],
+                "route" :"/portfolio/webdev",
+                "logo"  :"flutterdev.svg",
+                "alt" :"webdev"
             },
             {
-                "serviceTitle" :"Data Science",
-                "serviceContent" :"I thrive to be a data scientist in the future , thats why i research this topic as much as i can and try to build real-life projects",
-                "route" :"/projects/datascience",
-                "image"  :"datascience.svg",
-                "alt" :"datascience"
+                "title" : "Data Science",
+                "techs" : [
+                    {
+                        "path" : "numpy.png",
+                        "alt" : "numpy"
+                    },
+                    {
+                        "path" : "pandas.png",
+                        "alt" : "pandas"
+                    },
+                    {
+                        "path" : "anaconda.png",
+                        "alt" : "anaconda"
+                    }
+                ],
+                "route" :"/portfolio/webdev.svg",
+                "logo"  :"datascience.svg",
+                "alt" :"webdev"
+            },
+            {
+                "title" : "Programming",
+                "techs" : [
+                    {
+                        "path" : "typescript.png",
+                        "alt" : "typescript"
+                    },
+                    {
+                        "path" : "js.png",
+                        "alt" : "javascript"
+                    },
+                    {
+                        "path" : "python.png",
+                        "alt" : "python"
+                    },
+                    {
+                        "path" : "sql.png",
+                        "alt" : "sql"
+                    },
+                    {
+                        "path" : "csharp.png",
+                        "alt" : "csharp"
+                    },
+                    {
+                        "path" : "cpp.png",
+                        "alt" : "C plus plus"
+                    },
+                    {
+                        "path" : "java.png",
+                        "alt" : "java"
+                    },
+                    {
+                        "path" : "rust.png",
+                        "alt" : "rustlang"
+                    }
+                ],
+                "route" :"/portfolio/webdev",
+                "logo"  :"programming.svg",
+                "alt" :"webdev"
             }
         ]
     },
@@ -61,8 +160,6 @@
         "header" : "Academics" ,
         "image" :"graduation.svg",
         "alt" :"academics",
-        
-        "description" :"Iam currently a 3rd year student at <a href=\"https://www.esi.dz\" target=\"_blank\" rel=\"noopener noreferrer\">Ecole nationale supérieure d'informatique Algiers , ESI </a> , here are some of our curriculum subjects ",
         "items" : [
             {
                 "image" : "code.svg",

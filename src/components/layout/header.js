@@ -80,7 +80,7 @@ const StyledHeader = styled.header`
   min-height: 10vh;
   width: 100vw;
   display: grid;
-  background-color: inherit;
+  background-color: var(--white);
   grid-template-areas: "nav";
   font-family: var(--font), sans-serif;
   font-weight: 600;
